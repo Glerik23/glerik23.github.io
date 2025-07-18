@@ -1,32 +1,33 @@
-// Инициализация DataTables после полной загрузки страницы
 $(document).ready(function() {
-    $('#projectsTable').DataTable({
-        // Настройки для русификации интерфейса таблицы
+    
+    // Общие настройки для всех таблиц
+    const dataTableOptions = {
         "language": {
-            "processing": "Подождите...",
             "search": "Поиск:",
             "lengthMenu": "Показать _MENU_ записей",
-            "info": "Записи с _START_ до _END_ из _TOTAL_ записей",
-            "infoEmpty": "Записи с 0 до 0 из 0 записей",
-            "infoFiltered": "(отфильтровано из _MAX_ записей)",
-            "infoPostFix": "",
-            "loadingRecords": "Загрузка записей...",
-            "zeroRecords": "Записи отсутствуют.",
-            "emptyTable": "В таблице отсутствуют данные",
+            "info": "Записи с _START_ до _END_ из _TOTAL_",
+            "infoEmpty": "Нет записей",
+            "infoFiltered": "(отфильтровано из _MAX_)",
+            "zeroRecords": "Совпадений не найдено.",
+            "emptyTable": "В таблице нет данных",
             "paginate": {
-                "first": "Первая",
-                "previous": "Предыдущая",
-                "next": "Следующая",
-                "last": "Последняя"
-            },
-            "aria": {
-                "sortAscending": ": активировать для сортировки столбца по возрастанию",
-                "sortDescending": ": активировать для сортировки столбца по убыванию"
+                "first": "«",
+                "previous": "‹",
+                "next": "›",
+                "last": "»"
             }
         },
-        // Отключаем стандартную пагинацию, если записей мало
-        "pageLength": 10, 
-        // Включаем "умную" ширину колонок
-        "autoWidth": true
-    });
+        "pageLength": 5, // По умолчанию показывать 5 строк
+        "lengthMenu": [ [5, 10, 25, -1], [5, 10, 25, "Все"] ], // Выбор кол-ва строк
+        "autoWidth": true,
+        "searching": true, // Включаем поиск
+        "paging": true, // Включаем пагинацию
+        "info": true, // Включаем информацию о строках
+    };
+
+    // Инициализация каждой таблицы с общими настройками
+    $('#twitchTable').DataTable(dataTableOptions);
+    $('#telegramTable').DataTable(dataTableOptions);
+    $('#discordTable').DataTable(dataTableOptions);
+
 });

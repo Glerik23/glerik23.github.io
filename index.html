@@ -3,79 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glerik - Портфолио</title>
+    <title>Glerik - Development and Administration</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Подключение библиотеки иконок (Font Awesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Подключение стилей для таблицы (DataTables) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 </head>
 <body>
 
-    <div class="container">
-        <!-- КАРТОЧКА ПРОФИЛЯ -->
-        <div class="profile-card">
-            <img src="https://glerik.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F0141d864-46f9-4670-87f5-5b4d79a2f3a6%2F062c3584-c5a4-448f-8488-84227918a0ab%2Fava.webp?table=block&id=e435e954-c9f2-4a7b-a48e-d958863f58a4&spaceId=0141d864-46f9-4670-87f5-5b4d79a2f3a6&width=250&userId=&cache=v2" alt="Фото профиля" class="profile-img">
-            <h1>Glerik</h1>
-            <p class="subtitle">QA | Automation | Web | Python | SQL | Administration</p>
-            
-            <div class="social-links">
-                <a href="https://vk.com/glerik" target="_blank" aria-label="VK"><i class="fab fa-vk"></i></a>
-                <a href="https://t.me/glerik" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-                <a href="https://github.com/glerik23" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:glerik@yandex.ru" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
+<!-- 
+******************************************************************
+    ШАБЛОНЫ ДЛЯ КОПИРОВАНИЯ (эти блоки не видны на сайте)
+******************************************************************
 
-        <!-- ТАБЛИЦА В СТИЛЕ NOTION -->
-        <div class="table-card">
-            <h2>Разработка и администрирование</h2>
-            <p>Здесь собраны мои текущие проекты, задачи и полезные ресурсы. Используйте поиск для быстрой навигации.</p>
-            
-            <table id="projectsTable" class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Название</th>
-                        <th>Стек</th>
-                        <th>Статус</th>
-                        <th>Ссылка</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Данные из вашего Notion -->
-                    <tr>
-                        <td>Сайт-портфолио</td>
-                        <td>HTML, CSS, JS</td>
-                        <td>В процессе</td>
-                        <td><a href="https://glerik23.github.io/" target="_blank">Посмотреть</a></td>
-                    </tr>
-                    <tr>
-                        <td>Автотесты для API</td>
-                        <td>Python, Pytest, Requests</td>
-                        <td>В процессе</td>
-                        <td><a href="https://github.com/glerik23/play_tests" target="_blank">Репозиторий</a></td>
-                    </tr>
-                    <tr>
-                        <td>Дашборд в Grafana</td>
-                        <td>Grafana, Prometheus, Docker</td>
-                        <td>Поддержка</td>
-                        <td><a href="https://github.com/glerik23" target="_blank">Пример</a></td>
-                    </tr>
-                     <tr>
-                        <td>Управление VPS</td>
-                        <td>Linux, Nginx, Docker</td>
-                        <td>Активно</td>
-                        <td><a href="https://github.com/glerik23" target="_blank">Документация</a></td>
-                    </tr>
-                </tbody>
-            </table>
+    1. ШАБЛОН ДЛЯ НОВОЙ ССЫЛКИ В ШАПКЕ:
+    <a href="https://ссылка-на-ваш-профиль" target="_blank" class="link-card">
+        <i class="fa-brands fa-vk"></i> -- Иконка (список иконок: https://fontawesome.com/search?m=free&s=brands)
+        <span>VK Play</span> -- Текст ссылки
+    </a>
+
+    2. ШАБЛОН ДЛЯ НОВОЙ СТРОКИ В ТАБЛИЦЕ:
+    <tr>
+        <td>Название сервера/стримера</td>
+        <td>Количество участников</td>
+        <td><span class="tag tag-moderator">Ваша должность</span></td> -- Используйте классы тегов из style.css
+        <td>Дата</td>
+        <td><span class="tag tag-active">Статус</span></td> -- Используйте tag-active или tag-closed
+    </tr>
+
+    3. ШАБЛОН ДЛЯ ЦЕЛОГО НОВОГО БЛОКА С ТАБЛИЦЕЙ:
+    <div class="content-card">
+        <div class="card-header">
+            <h3><i class="fa-brands fa-youtube youtube-icon"></i> Название нового блока (например, YouTube)</h3>
         </div>
+        <h4><i class="fa-solid fa-users"></i> Подзаголовок (например, Каналы)</h4>
+        <table id="newTable" class="display" style="width:100%"> -- ВАЖНО: дайте новый id (например, youtubeTable)
+            <thead>
+                <tr>
+                    <th>Заголовок 1</th>
+                    <th>Заголовок 2</th>
+                    <th>Заголовок 3</th>
+                    <th>Заголовок 4</th>
+                    <th>Заголовок 5</th>
+                </tr>
+            </thead>
+            <tbody>
+                -- Сюда вставляйте строки из шаблона №2
+            </tbody>
+        </table>
     </div>
 
-    <!-- Подключение библиотек jQuery и DataTables -->
+******************************************************************
+-->
+
+    <div class="main-container">
+
+        <!-- ===== СЕКЦИЯ ПРОФИЛЯ ===== -->
+        <header class="profile-header">
+            <div class="banner"></div>
+            <img src="https://i.ibb.co/6r1y4P7/avatar-prof.png" alt="Аватар" class="profile-avatar">
+        </header>
+        
+        <section class="profile-content">
+            <h1>Glerik</h1>
+
+            <!-- ===== ССЫЛКИ В ШАПКЕ ===== -->
+            <!-- Чтобы добавить ссылку, скопируйте шаблон №1 и вставьте его сюда -->
+            <div class="links-grid">
+                <a href="https://discordapp.com/users/298482431725338624" target="_blank" class="link-card">
+                    <i class="fab fa-discord"></i><span>My Discord</span>
+                </a>
+                <a href="https://steamcommunity.com/id/glerik" target="_blank" class="link-card">
+                    <i class="fab fa-steam"></i><span>Steam</span>
+                </a>
+                <a href="https://www.twitch.tv/glerik" target="_blank" class="link-card">
+                    <i class="fab fa-twitch"></i><span>Twitch</span>
+                </a>
+                 <a href="https://t.me/glerik" target="_blank" class="link-card">
+                    <i class="fab fa-telegram"></i><span>Glerik#2398</span>
+                </a>
+                <a href="#" target="_blank" class="link-card">
+                    <i class="fa-solid fa-gamepad"></i><span>RG Glerik#RaGe</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+        <main class="content-wrapper">
+            <h2>Development and administration</h2>
+
+            <!-- ===== БЛОК TWITCH ===== -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h3><i class="fab fa-twitch twitch-icon"></i> Twitch</h3>
+                </div>
+                <h4><i class="fa-solid fa-users"></i> Streamers</h4>
+                <!-- ТАБЛИЦА TWITCH -->
+                <table id="twitchTable" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Streamer</th>
+                            <th>Followers</th>
+                            <th>Position</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Чтобы добавить строку, скопируйте шаблон №2 и вставьте его сюда -->
+                        <tr>
+                            <td>Hamilthone</td>
+                            <td>7800+</td>
+                            <td><span class="tag tag-admin">Administrator</span></td>
+                            <td>11/02/2024 →</td>
+                            <td><span class="tag tag-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Faby_morel</td>
+                            <td>460+</td>
+                            <td><span class="tag tag-moderator">Moderator</span></td>
+                            <td>17/04/2025 →</td>
+                            <td><span class="tag tag-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mattrahersha</td>
+                            <td>200+</td>
+                            <td><span class="tag tag-moderator">Moderator</span></td>
+                            <td>03/03/2025 → 18/06/2025</td>
+                            <td><span class="tag tag-closed">Closed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ===== БЛОК TELEGRAM ===== -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h3><i class="fab fa-telegram telegram-icon"></i> Telegram</h3>
+                </div>
+                <h4><i class="fa-solid fa-users"></i> Channels</h4>
+                <!-- ТАБЛИЦА TELEGRAM -->
+                <table id="telegramTable" class="display" style="width:100%">
+                     <thead>
+                        <tr>
+                            <th>Server</th>
+                            <th>Members</th>
+                            <th>Position</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Чтобы добавить строку, скопируйте шаблон №2 и вставьте его сюда -->
+                        <tr>
+                            <td>Hamilthone</td>
+                            <td>30000+</td>
+                            <td><span class="tag tag-moderator">Moderator</span></td>
+                            <td>13/09/2023 →</td>
+                            <td><span class="tag tag-active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ===== БЛОК DISCORD ===== -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h3><i class="fab fa-discord discord-icon"></i> Discord</h3>
+                </div>
+                <h4><i class="fa-solid fa-server"></i> Servers</h4>
+                <!-- ТАБЛИЦА DISCORD -->
+                <table id="discordTable" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Server</th>
+                            <th>Members</th>
+                            <th>Position</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Чтобы добавить строку, скопируйте шаблон №2 и вставьте его сюда -->
+                        <tr>
+                            <td>Hamilthone</td>
+                            <td>400+</td>
+                            <td><span class="tag tag-moderator">Moderator</span></td>
+                            <td>13/09/2023 →</td>
+                            <td><span class="tag tag-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>House of Memory</td>
+                            <td>100+</td>
+                            <td><span class="tag tag-owner">Owner</span></td>
+                            <td>28/06/2020 →</td>
+                            <td><span class="tag tag-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>RUS Server</td>
+                            <td>500+</td>
+                            <td><span class="tag tag-admin">Administrator</span></td>
+                            <td>18/09/2018 → 26/11/2020</td>
+                            <td><span class="tag tag-closed">Closed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ===== БЛОК НАВЫКОВ ===== -->
+             <div class="skills-card">
+                <div class="skill-item">
+                    <span class="skill-title">Joined Discord:</span>
+                    <span class="skill-value">27/03/2018</span>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-title">Skills:</span>
+                    <span class="skill-value">
+                        <span class="skill-color-green">Embeds</span>, 
+                        <span class="skill-color-green">server setup</span>, 
+                        <span class="skill-color-green">server administration</span>, 
+                        <span class="skill-color-purple">server creating</span>, 
+                        <span class="skill-color-red">server design</span>, 
+                        <span>extensive experience in moderation.</span>
+                    </span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Подключение скриптов (менять не нужно) -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <!-- Подключение вашего скрипта -->
     <script src="script.js"></script>
 </body>
 </html>
