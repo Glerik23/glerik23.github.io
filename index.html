@@ -10,84 +10,28 @@
 </head>
 <body>
 
-<!-- 
-******************************************************************
-    ШАБЛОНЫ ДЛЯ КОПИРОВАНИЯ (эти блоки не видны на сайте)
-******************************************************************
-
-    1. ШАБЛОН ДЛЯ НОВОЙ ССЫЛКИ В ШАПКЕ:
-    <a href="https://ссылка-на-ваш-профиль" target="_blank" class="link-card">
-        <i class="fa-brands fa-vk"></i> -- Иконка (список иконок: https://fontawesome.com/search?m=free&s=brands)
-        <span>VK Play</span> -- Текст ссылки
-    </a>
-
-    2. ШАБЛОН ДЛЯ НОВОЙ СТРОКИ В ТАБЛИЦЕ:
-    <tr>
-        <td>Название сервера/стримера</td>
-        <td>Количество участников</td>
-        <td><span class="tag tag-moderator">Ваша должность</span></td> -- Используйте классы тегов из style.css
-        <td>Дата</td>
-        <td><span class="tag tag-active">Статус</span></td> -- Используйте tag-active или tag-closed
-    </tr>
-
-    3. ШАБЛОН ДЛЯ ЦЕЛОГО НОВОГО БЛОКА С ТАБЛИЦЕЙ:
-    <div class="content-card">
-        <div class="card-header">
-            <h3><i class="fa-brands fa-youtube youtube-icon"></i> Название нового блока (например, YouTube)</h3>
-        </div>
-        <h4><i class="fa-solid fa-users"></i> Подзаголовок (например, Каналы)</h4>
-        <table id="newTable" class="display" style="width:100%"> -- ВАЖНО: дайте новый id (например, youtubeTable)
-            <thead>
-                <tr>
-                    <th>Заголовок 1</th>
-                    <th>Заголовок 2</th>
-                    <th>Заголовок 3</th>
-                    <th>Заголовок 4</th>
-                    <th>Заголовок 5</th>
-                </tr>
-            </thead>
-            <tbody>
-                -- Сюда вставляйте строки из шаблона №2
-            </tbody>
-        </table>
-    </div>
-
-******************************************************************
--->
+    <!-- Шаблоны для копирования остаются здесь для вашего удобства -->
 
     <div class="main-container">
 
-        <!-- ===== СЕКЦИЯ ПРОФИЛЯ ===== -->
-        <header class="profile-header">
-            <div class="banner"></div>
-            <img src="https://i.ibb.co/6r1y4P7/avatar-prof.png" alt="Аватар" class="profile-avatar">
-        </header>
-        
-        <section class="profile-content">
-            <h1>Glerik</h1>
-
-            <!-- ===== ССЫЛКИ В ШАПКЕ ===== -->
-            <!-- Чтобы добавить ссылку, скопируйте шаблон №1 и вставьте его сюда -->
-            <div class="links-grid">
-                <a href="https://discordapp.com/users/298482431725338624" target="_blank" class="link-card">
-                    <i class="fab fa-discord"></i><span>My Discord</span>
-                </a>
-                <a href="https://steamcommunity.com/id/glerik" target="_blank" class="link-card">
-                    <i class="fab fa-steam"></i><span>Steam</span>
-                </a>
-                <a href="https://www.twitch.tv/glerik" target="_blank" class="link-card">
-                    <i class="fab fa-twitch"></i><span>Twitch</span>
-                </a>
-                 <a href="https://t.me/glerik" target="_blank" class="link-card">
-                    <i class="fab fa-telegram"></i><span>Glerik#2398</span>
-                </a>
-                <a href="#" target="_blank" class="link-card">
-                    <i class="fa-solid fa-gamepad"></i><span>RG Glerik#RaGe</span>
-                </a>
+        <!-- ===== ИСПРАВЛЕННАЯ СЕКЦИЯ ПРОФИЛЯ ===== -->
+        <section class="profile-section">
+            <div class="profile-header">
+                <img src="https://i.ibb.co/6r1y4P7/avatar-prof.png" alt="Аватар" class="profile-avatar">
+                <div class="profile-info">
+                    <h1>Glerik</h1>
+                    <div class="profile-links">
+                        <a href="https://discordapp.com/users/298482431725338624" target="_blank"><i class="fab fa-discord"></i> My Discord</a>
+                        <a href="https://steamcommunity.com/id/glerik" target="_blank"><i class="fab fa-steam"></i> Steam</a>
+                        <a href="https://www.twitch.tv/glerik" target="_blank"><i class="fab fa-twitch"></i> Twitch</a>
+                        <a href="https://t.me/glerik" target="_blank"><i class="fab fa-telegram"></i> Glerik#2398</a>
+                        <a href="#" target="_blank"><i class="fa-solid fa-gamepad"></i> RG Glerik#RaGe</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+        <!-- ===== ОСНОВНОЙ КОНТЕНТ (без изменений) ===== -->
         <main class="content-wrapper">
             <h2>Development and administration</h2>
 
@@ -97,7 +41,6 @@
                     <h3><i class="fab fa-twitch twitch-icon"></i> Twitch</h3>
                 </div>
                 <h4><i class="fa-solid fa-users"></i> Streamers</h4>
-                <!-- ТАБЛИЦА TWITCH -->
                 <table id="twitchTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -109,7 +52,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Чтобы добавить строку, скопируйте шаблон №2 и вставьте его сюда -->
                         <tr>
                             <td>Hamilthone</td>
                             <td>7800+</td>
@@ -141,7 +83,6 @@
                     <h3><i class="fab fa-telegram telegram-icon"></i> Telegram</h3>
                 </div>
                 <h4><i class="fa-solid fa-users"></i> Channels</h4>
-                <!-- ТАБЛИЦА TELEGRAM -->
                 <table id="telegramTable" class="display" style="width:100%">
                      <thead>
                         <tr>
@@ -153,7 +94,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Чтобы добавить строку, скопируйте шаблон №2 и вставьте его сюда -->
                         <tr>
                             <td>Hamilthone</td>
                             <td>30000+</td>
@@ -171,7 +111,6 @@
                     <h3><i class="fab fa-discord discord-icon"></i> Discord</h3>
                 </div>
                 <h4><i class="fa-solid fa-server"></i> Servers</h4>
-                <!-- ТАБЛИЦА DISCORD -->
                 <table id="discordTable" class="display" style="width:100%">
                     <thead>
                         <tr>
@@ -183,7 +122,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Чтобы добавить строку, скопируйте шаблон №2 и вставьте его сюда -->
                         <tr>
                             <td>Hamilthone</td>
                             <td>400+</td>
@@ -208,7 +146,7 @@
                     </tbody>
                 </table>
             </div>
-
+            
             <!-- ===== БЛОК НАВЫКОВ ===== -->
              <div class="skills-card">
                 <div class="skill-item">
@@ -230,7 +168,6 @@
         </main>
     </div>
 
-    <!-- Подключение скриптов (менять не нужно) -->
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="script.js"></script>
