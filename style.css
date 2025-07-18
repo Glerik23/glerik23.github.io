@@ -19,11 +19,10 @@ body {
     margin: 0 0 20px 0;
 }
 
-/* --- ИЗМЕНЕНИЕ №1: Центрирование кнопок --- */
 .links-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Главное свойство для центрирования */
+    justify-content: center;
     gap: 15px;
     margin-bottom: 40px;
 }
@@ -34,13 +33,13 @@ body {
     padding: 15px 20px;
     display: flex;
     align-items: center;
-    justify-content: center; /* Центрируем контент внутри карточки */
+    justify-content: center;
     gap: 15px;
     text-decoration: none;
     color: #dcddde;
     transition: background-color 0.2s ease;
-    flex-basis: 250px; /* Базовая ширина для расчета */
-    flex-grow: 1; /* Позволяет карточкам занимать свободное место */
+    flex-basis: 250px;
+    flex-grow: 1;
 }
 
 .link-card:hover {
@@ -62,8 +61,6 @@ body {
     font-weight: 500;
 }
 
-
-/* --- ИЗМЕНЕНИЕ №2: Стили для аватарок в таблице --- */
 .table-cell-with-avatar {
     display: flex;
     align-items: center;
@@ -73,7 +70,7 @@ body {
 .table-avatar {
     width: 28px;
     height: 28px;
-    border-radius: 50%; /* Делает аватар круглым */
+    border-radius: 50%;
     object-fit: cover;
 }
 
@@ -135,7 +132,7 @@ table.dataTable {
     background-color: #2a2c30;
     border: 1px solid #33363b;
     border-radius: 8px;
-    overflow: hidden; /* Скрывает углы, которые могут вылезать из-за дочерних элементов */
+    overflow: hidden;
 }
 
 table.dataTable thead th {
@@ -157,7 +154,7 @@ table.dataTable tbody tr:last-child {
 table.dataTable tbody tr:hover { background-color: #313338; }
 table.dataTable td, table.dataTable th { 
     padding: 12px 15px; 
-    vertical-align: middle; /* Вертикальное выравнивание по центру ячейки */
+    vertical-align: middle;
 }
 
 /* Элементы управления DataTables */

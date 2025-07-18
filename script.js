@@ -17,12 +17,12 @@ $(document).ready(function() {
                 "last": "»"
             }
         },
-        "pageLength": 5, // По умолчанию показывать 5 строк
-        "lengthMenu": [ [5, 10, 25, -1], [5, 10, 25, "Все"] ], // Выбор кол-ва строк
+        "pageLength": 5,
+        "lengthMenu": [ [5, 10, 25, -1], [5, 10, 25, "Все"] ],
         "autoWidth": true,
-        "searching": true, // Включаем поиск
-        "paging": true, // Включаем пагинацию
-        "info": true, // Включаем информацию о строках
+        "searching": true,
+        "paging": true,
+        "info": true,
     };
 
     // Инициализация каждой таблицы с общими настройками
