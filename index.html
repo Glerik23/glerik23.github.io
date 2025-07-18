@@ -10,28 +10,54 @@
 </head>
 <body>
 
-    <!-- Шаблоны для копирования остаются здесь для вашего удобства -->
+<!-- 
+******************************************************************
+    ШАБЛОНЫ ДЛЯ КОПИРОВАНИЯ
+******************************************************************
+
+    ШАБЛОН ДЛЯ НОВОЙ СТРОКИ В ТАБЛИЦЕ (С АВАТАРКОЙ):
+    <tr>
+        <td>
+            <div class="table-cell-with-avatar">
+                <!-- Вставьте ссылку на аватарку вместо https://... -->
+                <img src="https://i.pravatar.cc/32" alt="avatar" class="table-avatar">
+                <span>Имя стримера/название сервера</span>
+            </div>
+        </td>
+        <td>Количество участников</td>
+        <td><span class="tag tag-moderator">Должность</span></td>
+        <td>Дата</td>
+        <td><span class="tag tag-active">Статус</span></td>
+    </tr>
+
+******************************************************************
+-->
 
     <div class="main-container">
 
-        <!-- ===== ИСПРАВЛЕННАЯ СЕКЦИЯ ПРОФИЛЯ ===== -->
+        <!-- ===== СЕКЦИЯ ПРОФИЛЯ ===== -->
         <section class="profile-section">
-            <div class="profile-header">
-                <img src="https://i.ibb.co/6r1y4P7/avatar-prof.png" alt="Аватар" class="profile-avatar">
-                <div class="profile-info">
-                    <h1>Glerik</h1>
-                    <div class="profile-links">
-                        <a href="https://discordapp.com/users/298482431725338624" target="_blank"><i class="fab fa-discord"></i> My Discord</a>
-                        <a href="https://steamcommunity.com/id/glerik" target="_blank"><i class="fab fa-steam"></i> Steam</a>
-                        <a href="https://www.twitch.tv/glerik" target="_blank"><i class="fab fa-twitch"></i> Twitch</a>
-                        <a href="https://t.me/glerik" target="_blank"><i class="fab fa-telegram"></i> Glerik#2398</a>
-                        <a href="#" target="_blank"><i class="fa-solid fa-gamepad"></i> RG Glerik#RaGe</a>
-                    </div>
-                </div>
+             <h1>Glerik</h1>
+             <div class="links-grid">
+                <a href="https://discordapp.com/users/298482431725338624" target="_blank" class="link-card">
+                    <i class="fab fa-discord"></i><span>My Discord</span>
+                </a>
+                <a href="https://steamcommunity.com/id/glerik" target="_blank" class="link-card">
+                    <i class="fab fa-steam"></i><span>Steam</span>
+                </a>
+                <a href="https://www.twitch.tv/glerik" target="_blank" class="link-card">
+                    <i class="fab fa-twitch"></i><span>Twitch</span>
+                </a>
+                 <a href="https://t.me/glerik" target="_blank" class="link-card">
+                    <i class="fab fa-telegram"></i><span>Glerik#2398</span>
+                </a>
+                <a href="#" target="_blank" class="link-card">
+                    <i class="fa-solid fa-gamepad"></i><span>RG Glerik#RaGe</span>
+                </a>
             </div>
         </section>
 
-        <!-- ===== ОСНОВНОЙ КОНТЕНТ (без изменений) ===== -->
+        <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
         <main class="content-wrapper">
             <h2>Development and administration</h2>
 
@@ -52,22 +78,38 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Строки с аватарками -->
                         <tr>
-                            <td>Hamilthone</td>
+                            <td>
+                                <div class="table-cell-with-avatar">
+                                    <img src="https://i.pravatar.cc/32?u=hamilthone" alt="avatar" class="table-avatar">
+                                    <span>Hamilthone</span>
+                                </div>
+                            </td>
                             <td>7800+</td>
                             <td><span class="tag tag-admin">Administrator</span></td>
                             <td>11/02/2024 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
-                            <td>Faby_morel</td>
+                            <td>
+                                <div class="table-cell-with-avatar">
+                                    <img src="https://i.pravatar.cc/32?u=faby_morel" alt="avatar" class="table-avatar">
+                                    <span>Faby_morel</span>
+                                </div>
+                            </td>
                             <td>460+</td>
                             <td><span class="tag tag-moderator">Moderator</span></td>
                             <td>17/04/2025 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
-                            <td>Mattrahersha</td>
+                           <td>
+                                <div class="table-cell-with-avatar">
+                                    <img src="https://i.pravatar.cc/32?u=mattrahersha" alt="avatar" class="table-avatar">
+                                    <span>Mattrahersha</span>
+                                </div>
+                            </td>
                             <td>200+</td>
                             <td><span class="tag tag-moderator">Moderator</span></td>
                             <td>03/03/2025 → 18/06/2025</td>
@@ -77,7 +119,7 @@
                 </table>
             </div>
 
-            <!-- ===== БЛОК TELEGRAM ===== -->
+            <!-- ===== БЛОК TELEGRAM (пример без аватарок) ===== -->
             <div class="content-card">
                 <div class="card-header">
                     <h3><i class="fab fa-telegram telegram-icon"></i> Telegram</h3>
@@ -105,7 +147,7 @@
                 </table>
             </div>
 
-            <!-- ===== БЛОК DISCORD ===== -->
+            <!-- ===== БЛОК DISCORD (пример с аватарками) ===== -->
             <div class="content-card">
                 <div class="card-header">
                     <h3><i class="fab fa-discord discord-icon"></i> Discord</h3>
@@ -123,21 +165,36 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Hamilthone</td>
+                            <td>
+                                <div class="table-cell-with-avatar">
+                                    <img src="https://i.pravatar.cc/32?u=hamilthone_discord" alt="avatar" class="table-avatar">
+                                    <span>Hamilthone</span>
+                                </div>
+                            </td>
                             <td>400+</td>
                             <td><span class="tag tag-moderator">Moderator</span></td>
                             <td>13/09/2023 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
-                            <td>House of Memory</td>
+                            <td>
+                                <div class="table-cell-with-avatar">
+                                    <img src="https://i.pravatar.cc/32?u=houseofmemory" alt="avatar" class="table-avatar">
+                                    <span>House of Memory</span>
+                                </div>
+                            </td>
                             <td>100+</td>
                             <td><span class="tag tag-owner">Owner</span></td>
                             <td>28/06/2020 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
-                            <td>RUS Server</td>
+                             <td>
+                                <div class="table-cell-with-avatar">
+                                    <img src="https://i.pravatar.cc/32?u=rus_server" alt="avatar" class="table-avatar">
+                                    <span>RUS Server</span>
+                                </div>
+                            </td>
                             <td>500+</td>
                             <td><span class="tag tag-admin">Administrator</span></td>
                             <td>18/09/2018 → 26/11/2020</td>

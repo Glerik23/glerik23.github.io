@@ -13,64 +13,71 @@ body {
     padding: 20px;
 }
 
-/* ===== Новая секция профиля ===== */
-.profile-section {
+/* ===== Секция профиля ===== */
+.profile-section h1 {
+    font-size: 2.5em;
+    margin: 0 0 20px 0;
+}
+
+/* --- ИЗМЕНЕНИЕ №1: Центрирование кнопок --- */
+.links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Главное свойство для центрирования */
+    gap: 15px;
     margin-bottom: 40px;
 }
 
-.profile-header {
+.link-card {
+    background-color: #2f3136;
+    border-radius: 8px;
+    padding: 15px 20px;
     display: flex;
-    align-items: flex-start; /* Выравнивание по верху */
-    gap: 20px;
+    align-items: center;
+    justify-content: center; /* Центрируем контент внутри карточки */
+    gap: 15px;
+    text-decoration: none;
+    color: #dcddde;
+    transition: background-color 0.2s ease;
+    flex-basis: 250px; /* Базовая ширина для расчета */
+    flex-grow: 1; /* Позволяет карточкам занимать свободное место */
 }
 
-.profile-avatar {
-    width: 100px; /* Уменьшенный аватар */
-    height: 100px;
-    border-radius: 8px; /* Квадратный с закругленными углами */
+.link-card:hover {
+    background-color: #3a3d42;
+}
+
+.link-card i {
+    font-size: 1.8em;
+}
+.link-card .fa-discord { color: #5865F2; }
+.link-card .fa-steam { color: #ffffff; }
+.link-card .fa-twitch { color: #9146FF; }
+.link-card .fa-telegram { color: #2AABEE; }
+.link-card .fa-gamepad { color: #F04747; }
+
+
+.link-card span {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+
+/* --- ИЗМЕНЕНИЕ №2: Стили для аватарок в таблице --- */
+.table-cell-with-avatar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.table-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%; /* Делает аватар круглым */
     object-fit: cover;
 }
 
-.profile-info h1 {
-    font-size: 2.5em;
-    margin: 0 0 10px 0;
-}
-
-/* Ссылки под именем */
-.profile-links {
-    display: flex;
-    flex-wrap: wrap; /* Позволяет ссылкам переноситься на новую строку на маленьких экранах */
-    gap: 15px;
-    align-items: center;
-}
-
-.profile-links a {
-    color: #a0a2a5;
-    text-decoration: none;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.2s ease;
-}
-
-.profile-links a:hover {
-    color: #fff;
-}
-
-.profile-links a i {
-    font-size: 1.2em;
-}
-
-/* Цвета для иконок в ссылках */
-.fa-discord { color: #5865F2; }
-.fa-steam { color: #ffffff; }
-.fa-twitch { color: #9146FF; }
-.fa-telegram { color: #2AABEE; }
-.fa-gamepad { color: #F04747; }
-
-
-/* ===== ОСНОВНОЙ КОНТЕНТ (стили без изменений) ===== */
+/* ===== Основной контент ===== */
 .content-wrapper h2 {
     font-size: 1.8em;
     margin: 0 0 20px 0;
@@ -78,9 +85,6 @@ body {
 }
 
 .content-card {
-    background-color: transparent; /* Убираем фон карточек */
-    border-radius: 8px;
-    padding: 0; /* Убираем внутренние отступы */
     margin-bottom: 25px;
 }
 
@@ -91,7 +95,6 @@ body {
     align-items: center;
     gap: 10px;
 }
-
 .card-header i { font-size: 1.2em; }
 .twitch-icon { color: #9146FF; }
 .telegram-icon { color: #2AABEE; }
@@ -123,14 +126,16 @@ body {
 .tag-owner { background-color: #e67e22; }
 .tag-team-admin { background-color: #9b59b6; }
 
+
 /* Стилизация таблицы DataTables */
 table.dataTable {
     border-collapse: collapse !important;
     width: 100%;
     color: #dcddde;
-    background-color: #2a2c30; /* Фон для самой таблицы */
+    background-color: #2a2c30;
     border: 1px solid #33363b;
     border-radius: 8px;
+    overflow: hidden; /* Скрывает углы, которые могут вылезать из-за дочерних элементов */
 }
 
 table.dataTable thead th {
@@ -146,11 +151,14 @@ table.dataTable tbody tr {
     border-bottom: 1px solid #3a3c40;
 }
 table.dataTable tbody tr:last-child {
-    border-bottom: none; /* Убираем границу у последней строки */
+    border-bottom: none;
 }
 
 table.dataTable tbody tr:hover { background-color: #313338; }
-table.dataTable td, table.dataTable th { padding: 12px 15px; }
+table.dataTable td, table.dataTable th { 
+    padding: 12px 15px; 
+    vertical-align: middle; /* Вертикальное выравнивание по центру ячейки */
+}
 
 /* Элементы управления DataTables */
 .dataTables_wrapper .dataTables_length,
