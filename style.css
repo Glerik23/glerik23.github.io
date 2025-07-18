@@ -13,7 +13,26 @@ body {
     padding: 20px;
 }
 
-/* ===== Секция профиля ===== */
+/* 
+=====================================================
+    ИСПРАВЛЕННАЯ ШАПКА ПОД НОВЫЙ ДИЗАЙН
+=====================================================
+*/
+
+/* Убираем сложную шапку, оставляем только секцию профиля */
+.profile-section {
+    margin-bottom: 40px;
+}
+
+/* Стиль для большого баннера */
+.profile-banner-image {
+    width: 100%; /* Растягиваем на всю ширину контейнера */
+    height: auto; /* Высота подстраивается автоматически */
+    border-radius: 12px; /* Закругленные углы */
+    margin-bottom: 25px; /* Отступ снизу */
+    object-fit: cover;
+}
+
 .profile-section h1 {
     font-size: 2.5em;
     margin: 0 0 20px 0;
@@ -24,7 +43,6 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
-    margin-bottom: 40px;
 }
 
 .link-card {

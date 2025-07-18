@@ -12,8 +12,17 @@
 
     <div class="main-container">
 
-        <!-- ===== СЕКЦИЯ ПРОФИЛЯ ===== -->
-        <section class="profile-section">
+        <!-- ===== ВОССТАНОВЛЕННАЯ ШАПКА С БАННЕРОМ ===== -->
+        <header class="profile-header">
+            <div class="banner">
+                <!-- Фоновое изображение для баннера задается в CSS -->
+            </div>
+            <!-- Ваш аватар, который будет "висеть" поверх баннера -->
+            <img src="avatar.jpg" alt="Аватар" class="profile-avatar">
+        </header>
+
+        <!-- ===== СЕКЦИЯ ПРОФИЛЯ (Имя и ссылки) ===== -->
+        <section class="profile-content">
              <h1>Glerik</h1>
              <div class="links-grid">
                 <a href="https://discordapp.com/users/298482431725338624" target="_blank" class="link-card">
@@ -34,11 +43,13 @@
             </div>
         </section>
 
-        <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+        <!-- ===== ОСНОВНОЙ КОНТЕНТ (Таблицы) ===== -->
         <main class="content-wrapper">
             <h2>Development and administration</h2>
 
-            <!-- ===== БЛОК TWITCH ===== -->
+            <!-- Все ваши таблицы остаются здесь без изменений -->
+            
+            <!-- БЛОК TWITCH -->
             <div class="content-card">
                 <div class="card-header">
                     <h3><i class="fab fa-twitch twitch-icon"></i> Twitch</h3>
@@ -56,36 +67,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                <div class="table-cell-with-avatar">
-                                    <img src="https://i.pravatar.cc/32?u=faby_morel" alt="avatar" class="table-avatar">
-                                    <span>Faby_morel</span>
-                                </div>
-                            </td>
+                            <td><div class="table-cell-with-avatar"><img src="https://i.pravatar.cc/32?u=faby_morel" alt="avatar" class="table-avatar"><span>Faby_morel</span></div></td>
                             <td>460+</td>
                             <td><span class="tag tag-moderator">Moderator</span></td>
                             <td>17/04/2025 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
-                            <td>
-                                <div class="table-cell-with-avatar">
-                                    <img src="https://i.pravatar.cc/32?u=hamilthone" alt="avatar" class="table-avatar">
-                                    <span>Hamilthone</span>
-                                </div>
-                            </td>
+                            <td><div class="table-cell-with-avatar"><img src="https://i.pravatar.cc/32?u=hamilthone" alt="avatar" class="table-avatar"><span>Hamilthone</span></div></td>
                             <td>7800+</td>
                             <td><span class="tag tag-admin">Administrator</span></td>
                             <td>11/02/2024 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
-                           <td>
-                                <div class="table-cell-with-avatar">
-                                    <img src="https://i.pravatar.cc/32?u=mattrahersha" alt="avatar" class="table-avatar">
-                                    <span>Mattrahersha</span>
-                                </div>
-                            </td>
+                           <td><div class="table-cell-with-avatar"><img src="https://i.pravatar.cc/32?u=mattrahersha" alt="avatar" class="table-avatar"><span>Mattrahersha</span></div></td>
                             <td>200+</td>
                             <td><span class="tag tag-moderator">Moderator</span></td>
                             <td>03/03/2025 → 18/06/2025</td>
@@ -95,7 +91,7 @@
                 </table>
             </div>
 
-            <!-- ===== БЛОК TELEGRAM ===== -->
+            <!-- БЛОК TELEGRAM -->
             <div class="content-card">
                 <div class="card-header">
                     <h3><i class="fab fa-telegram telegram-icon"></i> Telegram</h3>
@@ -113,12 +109,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                <div class="table-cell-with-avatar">
-                                    <img src="https://i.pravatar.cc/32?u=hamilthone_telegram" alt="avatar" class="table-avatar">
-                                    <span>Hamilthone</span>
-                                </div>
-                            </td>
+                            <td><div class="table-cell-with-avatar"><img src="https://i.pravatar.cc/32?u=hamilthone_telegram" alt="avatar" class="table-avatar"><span>Hamilthone</span></div></td>
                             <td>30000+</td>
                             <td><span class="tag tag-moderator">Moderator</span></td>
                             <td>13/09/2023 →</td>
@@ -128,7 +119,7 @@
                 </table>
             </div>
 
-            <!-- ===== БЛОК DISCORD ===== -->
+            <!-- БЛОК DISCORD -->
             <div class="content-card">
                 <div class="card-header">
                     <h3><i class="fab fa-discord discord-icon"></i> Discord</h3>
@@ -146,36 +137,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                <div class="table-cell-with-avatar">
-                                    <img src="https://i.pravatar.cc/32?u=hamilthone_discord" alt="avatar" class="table-avatar">
-                                    <span>Hamilthone</span>
-                                </div>
-                            </td>
+                            <td><div class="table-cell-with-avatar"><img src="https://i.pravatar.cc/32?u=hamilthone_discord" alt="avatar" class="table-avatar"><span>Hamilthone</span></div></td>
                             <td>400+</td>
                             <td><span class="tag tag-moderator">Moderator</span></td>
                             <td>13/09/2023 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
-                            <td>
-                                <div class="table-cell-with-avatar">
-                                    <img src="https://i.pravatar.cc/32?u=houseofmemory" alt="avatar" class="table-avatar">
-                                    <span>House of Memory</span>
-                                </div>
-                            </td>
+                            <td><div class="table-cell-with-avatar"><img src="https://i.pravatar.cc/32?u=houseofmemory" alt="avatar" class="table-avatar"><span>House of Memory</span></div></td>
                             <td>100+</td>
                             <td><span class="tag tag-owner">Owner</span></td>
                             <td>28/06/2020 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
-                             <td>
-                                <div class="table-cell-with-avatar">
-                                    <img src="https://i.pravatar.cc/32?u=rus_server" alt="avatar" class="table-avatar">
-                                    <span>RUS Server</span>
-                                </div>
-                            </td>
+                             <td><div class="table-cell-with-avatar"><img src="https://i.pravatar.cc/32?u=rus_server" alt="avatar" class="table-avatar"><span>RUS Server</span></div></td>
                             <td>500+</td>
                             <td><span class="tag tag-admin">Administrator</span></td>
                             <td>18/09/2018 → 26/11/2020</td>
@@ -185,7 +161,7 @@
                 </table>
             </div>
             
-            <!-- ===== БЛОК НАВЫКОВ ===== -->
+            <!-- БЛОК НАВЫКОВ -->
              <div class="skills-card">
                 <div class="skill-item">
                     <span class="skill-title">Joined Discord:</span>
