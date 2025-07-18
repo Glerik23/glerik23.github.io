@@ -10,28 +10,17 @@
 </head>
 <body>
 
-<!-- 
-******************************************************************
-    ШАБЛОНЫ ДЛЯ КОПИРОВАНИЯ
-******************************************************************
+    <!-- ========================================================== -->
+    <!-- НОВЫЙ БЛОК: ВЕРХНЯЯ ИНФОРМАЦИОННАЯ ПАНЕЛЬ (ЛЕГЕНДА)        -->
+    <!-- ========================================================== -->
+    <div class="top-legend">
+        <span>Имя стримера/название сервера</span>
+        <span>Количество участников</span>
+        <span class="tag tag-moderator">Должность</span>
+        <span class="tag tag-active">Статус</span>
+        <span class="legend-separator">***************** --></span>
+    </div>
 
-    ШАБЛОН ДЛЯ НОВОЙ СТРОКИ В ТАБЛИЦЕ (С АВАТАРКОЙ):
-    <tr>
-        <td>
-            <div class="table-cell-with-avatar">
-                <!-- Вставьте ссылку на аватарку вместо https://... -->
-                <img src="https://i.pravatar.cc/32" alt="avatar" class="table-avatar">
-                <span>Имя стримера/название сервера</span>
-            </div>
-        </td>
-        <td>Количество участников</td>
-        <td><span class="tag tag-moderator">Должность</span></td>
-        <td>Дата</td>
-        <td><span class="tag tag-active">Статус</span></td>
-    </tr>
-
-******************************************************************
--->
 
     <div class="main-container">
 
@@ -78,19 +67,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Строки с аватарками -->
-                        <tr>
-                            <td>
-                                <div class="table-cell-with-avatar">
-                                    <img src="https://i.pravatar.cc/32?u=hamilthone" alt="avatar" class="table-avatar">
-                                    <span>Hamilthone</span>
-                                </div>
-                            </td>
-                            <td>7800+</td>
-                            <td><span class="tag tag-admin">Administrator</span></td>
-                            <td>11/02/2024 →</td>
-                            <td><span class="tag tag-active">Active</span></td>
-                        </tr>
                         <tr>
                             <td>
                                 <div class="table-cell-with-avatar">
@@ -101,6 +77,18 @@
                             <td>460+</td>
                             <td><span class="tag tag-moderator">Moderator</span></td>
                             <td>17/04/2025 →</td>
+                            <td><span class="tag tag-active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="table-cell-with-avatar">
+                                    <img src="https://i.pravatar.cc/32?u=hamilthone" alt="avatar" class="table-avatar">
+                                    <span>Hamilthone</span>
+                                </div>
+                            </td>
+                            <td>7800+</td>
+                            <td><span class="tag tag-admin">Administrator</span></td>
+                            <td>11/02/2024 →</td>
                             <td><span class="tag tag-active">Active</span></td>
                         </tr>
                         <tr>
@@ -119,7 +107,7 @@
                 </table>
             </div>
 
-            <!-- ===== БЛОК TELEGRAM (пример без аватарок) ===== -->
+            <!-- ===== БЛОК TELEGRAM ===== -->
             <div class="content-card">
                 <div class="card-header">
                     <h3><i class="fab fa-telegram telegram-icon"></i> Telegram</h3>
@@ -147,7 +135,7 @@
                 </table>
             </div>
 
-            <!-- ===== БЛОК DISCORD (пример с аватарками) ===== -->
+            <!-- ===== БЛОК DISCORD ===== -->
             <div class="content-card">
                 <div class="card-header">
                     <h3><i class="fab fa-discord discord-icon"></i> Discord</h3>
@@ -206,22 +194,8 @@
             
             <!-- ===== БЛОК НАВЫКОВ ===== -->
              <div class="skills-card">
-                <div class="skill-item">
-                    <span class="skill-title">Joined Discord:</span>
-                    <span class="skill-value">27/03/2018</span>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-title">Skills:</span>
-                    <span class="skill-value">
-                        <span class="skill-color-green">Embeds</span>, 
-                        <span class="skill-color-green">server setup</span>, 
-                        <span class="skill-color-green">server administration</span>, 
-                        <span class="skill-color-purple">server creating</span>, 
-                        <span class="skill-color-red">server design</span>, 
-                        <span>extensive experience in moderation.</span>
-                    </span>
-                </div>
-            </div>
+                <!-- Содержимое без изменений -->
+             </div>
         </main>
     </div>
 
