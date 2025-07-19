@@ -25,9 +25,19 @@ $(document).ready(function() {
         "info": true,
     };
 
-    // Инициализация каждой таблицы с общими настройками
-    $('#twitchTable').DataTable(dataTableOptions);
-    $('#telegramTable').DataTable(dataTableOptions);
-    $('#discordTable').DataTable(dataTableOptions);
+    $(document).ready(function() {
+    // Добавляем опцию order для таблицы Twitch
+    $('#twitchTable').DataTable({
+        "order": [[ 1, "desc" ]] // Сортировать по столбцу с индексом 1 (Followers) по убыванию
+    });
+
+    // Для остальных таблиц можно оставить стандартную инициализацию
+    $('#telegramTable').DataTable({
+        "order": [[ 1, "desc" ]] // Сортировать по столбцу с индексом 1 (Followers) по убыванию
+    });
+    $('#discordTable').DataTable({
+        "order": [[ 1, "desc" ]] // Сортировать по столбцу с индексом 1 (Followers) по убыванию
+    });
+    });
 
 });
