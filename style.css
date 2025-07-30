@@ -26,7 +26,7 @@ body {
 
 .banner {
     height: 240px; /* Высота баннера, можете изменить */
-    background-image: url('ProfileImage/banner.jpg'); /* ЗАМЕНИТЕ НА ССЫЛКУ НА ВАШ БАННЕР */
+    background-image: url('ProfileImage/banner.jpg'); /* ССЫЛКА НА БАННЕР */
     background-size: cover;
     background-position: center;
     border-radius: 12px;

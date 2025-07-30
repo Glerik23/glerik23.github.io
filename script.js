@@ -26,7 +26,7 @@ $(document).ready(function() {
     };
 
     $(document).ready(function() {
-    // Добавляем опцию order для таблицы Twitch
+    // Опция order для таблицы Twitch
     $('#twitchTable').DataTable({
         "order": [[ 1, "desc" ]] // Сортировать по столбцу с индексом 1 (Followers) по убыванию
     });
