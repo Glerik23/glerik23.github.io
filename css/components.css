@@ -1,0 +1,285 @@
+/* Component Styles */
+
+/* Link Cards */
+.link-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 200px;
+    max-width: 300px;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(145, 70, 255, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(145, 70, 255, 0.3);
+}
+
+.link-card:hover::before {
+    opacity: 1;
+}
+
+.link-card i,
+.link-card-icon {
+    font-size: 2em;
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover i,
+.link-card:hover .link-card-icon {
+    transform: scale(1.1);
+}
+
+.link-card .fa-discord {
+    color: #5865F2;
+}
+
+.link-card .fa-steam {
+    color: #ffffff;
+}
+
+.link-card .fa-twitch {
+    color: #9146FF;
+}
+
+.link-card .fa-telegram {
+    color: #2AABEE;
+}
+
+.link-card .valorant-icon {
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 0 5px rgba(255, 70, 85, 0.5));
+}
+
+.link-card span {
+    font-size: 1em;
+    font-weight: 500;
+    z-index: 1;
+}
+
+/* Content Cards */
+.content-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 30px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.card-header {
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 15px;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+}
+
+.twitch-icon {
+    color: #9146FF;
+    text-shadow: 0 0 15px rgba(145, 70, 255, 0.4);
+}
+
+.telegram-icon {
+    color: #2AABEE;
+    text-shadow: 0 0 15px rgba(42, 171, 238, 0.4);
+}
+
+.discord-icon {
+    color: #5865F2;
+    text-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+}
+
+.content-card h4 {
+    margin: 0 0 20px 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Tags */
+.tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tag-active {
+    background: linear-gradient(135deg, #22a55b, #118040);
+}
+
+.tag-closed {
+    background: linear-gradient(135deg, #747f8d, #5c6570);
+}
+
+.tag-moderator {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.tag-admin {
+    background: linear-gradient(135deg, #f1c40f, #d35400);
+}
+
+.tag-owner {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+}
+
+/* Tables */
+.full-width-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.full-width-table th,
+.full-width-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.full-width-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    color: #888;
+    user-select: none;
+}
+
+.full-width-table th:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.full-width-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.table-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.streamer-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.streamer-link:hover {
+    color: var(--primary-color);
+}
+
+.table-cell-with-avatar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.old-name {
+    display: block;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 2px;
+}
+
+.sort-icon {
+    font-size: 0.8em;
+    opacity: 0.7;
+    margin-left: 5px;
+}
+
+/* Skills Block */
+.skills-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.skill-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.skill-item:not(:last-child) {
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.skill-title {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.skill-value {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.skill-color-green {
+    color: #22a55b;
+    text-shadow: 0 0 10px rgba(34, 165, 91, 0.3);
+}
+
+.skill-color-purple {
+    color: #9b59b6;
+    text-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+}
+
+.skill-color-red {
+    color: #e74c3c;
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+/* Responsiveness for Skills */
+@media (max-width: 768px) {
+    .skill-item {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}

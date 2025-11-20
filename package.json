@@ -1,0 +1,17 @@
+{
+  "name": "glerik23.github.io",
+  "version": "1.0.0",
+  "description": "Glerik's Profile",
+  "main": "js/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^4.4.5"
+  }
+}
