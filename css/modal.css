@@ -1,0 +1,108 @@
+/* Modal Styles */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.modal-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--bg-color-elevated);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9) translateY(20px);
+    transition: transform var(--transition-normal);
+}
+
+.modal-visible .modal-content {
+    transform: scale(1) translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.25em;
+    color: var(--text-white);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.25em;
+    padding: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-fast);
+}
+
+.modal-close:hover {
+    color: var(--text-white);
+}
+
+/* Shortcuts Modal */
+.shortcuts-modal .modal-content {
+    max-width: 400px;
+}
+
+.shortcuts-list {
+    padding: var(--spacing-lg);
+}
+
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+}
+
+.shortcut-item:not(:last-child) {
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.shortcut-key {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-family: monospace;
+    font-size: 0.9em;
+    color: var(--primary-glow);
+    min-width: 60px;
+    text-align: center;
+}
+
+.shortcut-description {
+    color: var(--text-muted);
+    font-size: 0.9em;
+}

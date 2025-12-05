@@ -1,0 +1,29 @@
+{
+    "name": "Glerik Portfolio",
+    "short_name": "Glerik",
+    "description": "Glerik - Development and Administration portfolio",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0a0a12",
+    "theme_color": "#9146FF",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/ProfileImage/avatar.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/ProfileImage/avatar.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "portfolio",
+        "personal"
+    ],
+    "lang": "en"
+}

@@ -1,0 +1,131 @@
+/* Filter Controls */
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    align-items: center;
+}
+
+.filter-search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.filter-search-icon {
+    position: absolute;
+    left: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 0.9em;
+    pointer-events: none;
+}
+
+.filter-search {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-sm) var(--spacing-xl);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius-sm);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    font-size: 0.95em;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.filter-search:focus {
+    outline: none;
+    border-color: var(--primary-glow);
+    box-shadow: 0 0 0 3px rgba(145, 70, 255, 0.1);
+}
+
+.filter-search::placeholder {
+    color: var(--text-muted);
+}
+
+.filter-clear {
+    position: absolute;
+    right: var(--spacing-xs);
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-fast);
+}
+
+.filter-clear:hover {
+    color: var(--text-white);
+}
+
+.filter-status-wrapper {
+    display: flex;
+    gap: var(--spacing-xs);
+}
+
+.filter-status-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--tag-radius);
+    color: var(--text-muted);
+    font-family: var(--font-main);
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-status-btn:hover {
+    background: var(--glass-bg-hover);
+    color: var(--text-color);
+}
+
+.filter-status-btn.active {
+    background: var(--primary-glow);
+    border-color: var(--primary-glow);
+    color: var(--text-white);
+}
+
+/* Highlight */
+.highlight {
+    background: rgba(145, 70, 255, 0.3);
+    color: var(--text-white);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-muted);
+}
+
+.no-results i {
+    margin-right: var(--spacing-xs);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-search-wrapper {
+        max-width: none;
+    }
+
+    .filter-status-wrapper {
+        justify-content: center;
+    }
+}

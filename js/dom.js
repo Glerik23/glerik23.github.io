@@ -1,7 +1,18 @@
-import { fetchTwitchAvatar, fetchTwitchFollowers, fetchTelegramData } from './api.js';
+/**
+ * DOM manipulation and live data updates
+ * @module dom
+ */
 
-export function updateTwitchStats() {
+import { fetchTwitchAvatar, fetchTwitchFollowers, fetchTelegramData } from './api.js';
+import { createElement, setTextContent } from './utils.js';
+
+/**
+ * Update Twitch stats (avatars and follower counts) for all rows
+ * @returns {Promise<void>}
+ */
+export async function updateTwitchStats() {
     const rows = document.querySelectorAll('#twitchTable tbody tr');
+    const promises = [];
 
     rows.forEach(row => {
         const streamer = row.dataset.streamer;
@@ -12,50 +23,58 @@ export function updateTwitchStats() {
         const originalName = row.dataset.originalName;
         if (originalName && streamer.toLowerCase() !== originalName.toLowerCase()) {
             const link = row.querySelector('.streamer-link');
-            let textContainer = link.querySelector('div');
+            if (link) {
+                let textContainer = link.querySelector('div');
 
-            if (!textContainer) {
-                const nameSpan = link.querySelector('span');
-                if (nameSpan) {
-                    // Wrap span in div
-                    const div = document.createElement('div');
-                    link.replaceChild(div, nameSpan);
-                    div.appendChild(nameSpan);
-                    textContainer = div;
+                if (textContainer && !textContainer.querySelector('.old-name')) {
+                    const oldNameSpan = createElement('span', 'old-name');
+                    setTextContent(oldNameSpan, `ex. ${originalName}`);
+                    textContainer.appendChild(oldNameSpan);
                 }
-            }
-
-            if (textContainer && !textContainer.querySelector('.old-name')) {
-                const oldNameSpan = document.createElement('span');
-                oldNameSpan.className = 'old-name';
-                oldNameSpan.textContent = `ex. ${originalName}`;
-                textContainer.appendChild(oldNameSpan);
             }
         }
 
         // Update Avatar
-        fetchTwitchAvatar(streamer)
+        const avatarPromise = fetchTwitchAvatar(streamer)
             .then(avatarUrl => {
-                if (avatarUrl && !avatarUrl.includes('Error')) {
+                if (avatarUrl && !avatarUrl.includes('Error') && avatarUrl.startsWith('http')) {
                     const img = row.querySelector('.table-avatar');
-                    if (img) img.src = avatarUrl;
+                    if (img) {
+                        img.classList.add('loading');
+                        img.src = avatarUrl;
+                        img.addEventListener('load', () => img.classList.remove('loading'), { once: true });
+                    }
                 }
             })
-            .catch(err => console.error(`Failed to update avatar for ${streamer}:`, err));
+            .catch(err => {
+                console.warn(`Failed to update avatar for ${streamer}:`, err.message);
+            });
 
         // Update Follower Count
-        fetchTwitchFollowers(streamer)
+        const followerPromise = fetchTwitchFollowers(streamer)
             .then(followers => {
-                if (followers && !followers.includes('Error')) {
+                if (followers && !followers.includes('Error') && !isNaN(parseInt(followers))) {
                     const formattedFollowers = followers.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
                     const countCell = row.querySelector('.follower-count');
-                    if (countCell) countCell.textContent = formattedFollowers;
+                    if (countCell) {
+                        setTextContent(countCell, formattedFollowers);
+                    }
                 }
             })
-            .catch(err => console.error(`Failed to update followers for ${streamer}:`, err));
+            .catch(err => {
+                console.warn(`Failed to update followers for ${streamer}:`, err.message);
+            });
+
+        promises.push(avatarPromise, followerPromise);
     });
+
+    await Promise.allSettled(promises);
 }
 
+/**
+ * Update Telegram stats (avatars, names, and member counts) for all rows
+ * @returns {Promise<void>}
+ */
 export async function updateTelegramStats() {
     const rows = document.querySelectorAll('#telegramTable tbody tr');
     const promises = [];
@@ -65,18 +84,22 @@ export async function updateTelegramStats() {
         if (!channel) return;
 
         const promise = (async () => {
-            const htmlContent = await fetchTelegramData(channel);
-            if (!htmlContent) return;
-
             try {
+                const htmlContent = await fetchTelegramData(channel);
+                if (!htmlContent) return;
+
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlContent, "text/html");
 
                 // 1. Avatar
                 const avatarImg = doc.querySelector('img.tgme_page_photo_image');
-                if (avatarImg) {
+                if (avatarImg && avatarImg.src) {
                     const img = row.querySelector('.table-avatar');
-                    if (img) img.src = avatarImg.src;
+                    if (img) {
+                        img.classList.add('loading');
+                        img.src = avatarImg.src;
+                        img.addEventListener('load', () => img.classList.remove('loading'), { once: true });
+                    }
                 }
 
                 // 2. Channel Title
@@ -85,7 +108,7 @@ export async function updateTelegramStats() {
                     const titleText = titleDiv.textContent.trim();
                     const nameSpan = row.querySelector('.table-cell-with-avatar span');
                     if (nameSpan && titleText) {
-                        nameSpan.textContent = titleText;
+                        setTextContent(nameSpan, titleText);
                     }
                 }
 
@@ -99,14 +122,14 @@ export async function updateTelegramStats() {
                         if (countMatch) {
                             // Remove existing separators and format with spaces
                             const rawCount = countMatch[1].replace(/[,\s.]/g, '');
-                            countCell.textContent = rawCount.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                            setTextContent(countCell, rawCount.replace(/\B(?=(\d{3})+(?!\d))/g, " "));
                         } else {
-                            countCell.textContent = text;
+                            setTextContent(countCell, text);
                         }
                     }
                 }
             } catch (parseErr) {
-                console.error(`Error parsing Telegram data for ${channel}:`, parseErr);
+                console.warn(`Error parsing Telegram data for ${channel}:`, parseErr.message);
             }
         })();
 

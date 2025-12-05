@@ -1,16 +1,145 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a12">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Glerik - Development and Administration portfolio. Discord, Twitch, and Telegram community management experience with expertise in server setup, moderation, and design.">
+    <meta name="keywords"
+        content="Glerik, Discord, Twitch, Telegram, administrator, moderator, community management, server design, embeds">
+    <meta name="author" content="Glerik">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://glerik23.github.io/">
+    <meta property="og:title" content="Glerik - Development and Administration">
+    <meta property="og:description"
+        content="Portfolio showcasing Discord, Twitch, and Telegram community management experience.">
+    <meta property="og:image" content="https://glerik23.github.io/ProfileImage/avatar.jpg">
+    <meta property="og:site_name" content="Glerik Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://glerik23.github.io/">
+    <meta name="twitter:title" content="Glerik - Development and Administration">
+    <meta name="twitter:description" content="Portfolio showcasing community management experience.">
+    <meta name="twitter:image" content="https://glerik23.github.io/ProfileImage/avatar.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://glerik23.github.io/">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <title>Glerik - Development and Administration</title>
 
-    <!-- Fonts -->
+    <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Critical CSS (inline for fast first paint) -->
+    <style>
+        :root {
+            --bg-color: #0a0a12;
+            --text-color: #e0e0e0;
+            --primary-glow: #9146FF;
+            --font-main: 'Manrope', sans-serif
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            margin: 0;
+            min-height: 100vh
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.5s, visibility 0.5s
+        }
+
+        .preloader-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.05)
+            }
+        }
+
+        .preloader-spinner {
+            display: flex;
+            gap: 8px
+        }
+
+        .preloader-spinner span {
+            width: 10px;
+            height: 10px;
+            background: var(--primary-glow);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite
+        }
+
+        .preloader-spinner span:nth-child(2) {
+            animation-delay: .2s
+        }
+
+        .preloader-spinner span:nth-child(3) {
+            animation-delay: .4s
+        }
+
+        @keyframes bounce {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(.6);
+                opacity: .5
+            }
+
+            40% {
+                transform: scale(1);
+                opacity: 1
+            }
+        }
+    </style>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,119 +149,172 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/preloader.css">
+    <link rel="stylesheet" href="css/toast.css">
+    <link rel="stylesheet" href="css/tooltip.css">
+    <link rel="stylesheet" href="css/filter.css">
+    <link rel="stylesheet" href="css/stats.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/scroll.css">
+    <link rel="stylesheet" href="css/particles.css">
+    <link rel="stylesheet" href="css/timeline.css">
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <img src="ProfileImage/avatar.jpg" alt="" class="preloader-logo">
+            <div class="preloader-spinner">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
 
     <div class="main-container">
 
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Switch theme" data-tooltip="Сменить тему"
+            data-tooltip-position="bottom">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
         <!-- Header with Banner and Avatar -->
-        <header class="profile-header">
-            <div class="banner"></div>
-            <img src="ProfileImage/avatar.jpg" alt="Glerik Avatar" class="profile-avatar">
+        <header class="profile-header" id="profile-header">
+            <div class="banner" role="img" aria-label="Profile banner">
+                <div class="banner-skeleton skeleton"></div>
+            </div>
+            <img src="ProfileImage/avatar.jpg" alt="Glerik Avatar" class="profile-avatar" loading="eager" width="140"
+                height="140">
         </header>
 
         <!-- Profile Info -->
-        <section class="profile-content">
-            <h1>Glerik</h1>
-            <div class="profile-subtitle">Development & Administration</div>
+        <section class="profile-content" id="profile-info" aria-labelledby="profile-name">
+            <h1 id="profile-name">Glerik</h1>
+            <p class="profile-subtitle">Development & Administration</p>
 
             <!-- Links Grid -->
-            <div class="links-grid">
-                <a href="https://discordapp.com/users/428067961220366340" target="_blank" class="link-card"
+            <nav class="links-grid" id="social-links" aria-label="Social media links">
+                <a href="https://discordapp.com/users/428067961220366340" target="_blank" rel="noopener noreferrer"
+                    class="link-card" id="link-discord" data-tooltip="Открыть профиль Discord"
                     aria-label="Discord Profile">
-                    <i class="fab fa-discord"></i><span>My Discord</span>
+                    <i class="fab fa-discord" aria-hidden="true"></i>
+                    <span>My Discord</span>
                 </a>
-                <a href="https://steamcommunity.com/id/RGGlerik" target="_blank" class="link-card"
-                    aria-label="Steam Profile">
-                    <i class="fab fa-steam"></i><span>Steam</span>
+                <a href="https://steamcommunity.com/id/RGGlerik" target="_blank" rel="noopener noreferrer"
+                    class="link-card" id="link-steam" data-tooltip="Открыть профиль Steam" aria-label="Steam Profile">
+                    <i class="fab fa-steam" aria-hidden="true"></i>
+                    <span>Steam</span>
                 </a>
-                <a href="https://www.twitch.tv/glerik_" target="_blank" class="link-card" aria-label="Twitch Channel">
-                    <i class="fab fa-twitch"></i><span>Twitch</span>
+                <a href="https://www.twitch.tv/glerik_" target="_blank" rel="noopener noreferrer" class="link-card"
+                    id="link-twitch" data-tooltip="Открыть канал Twitch" aria-label="Twitch Channel">
+                    <i class="fab fa-twitch" aria-hidden="true"></i>
+                    <span>Twitch</span>
                 </a>
-                <a href="https://t.me/RG_Glerik" target="_blank" class="link-card" aria-label="Telegram Direct Message">
-                    <i class="fab fa-telegram"></i><span>TG DM</span>
+                <a href="https://t.me/RG_Glerik" target="_blank" rel="noopener noreferrer" class="link-card"
+                    id="link-telegram-dm" data-tooltip="Написать в Telegram" aria-label="Telegram Direct Message">
+                    <i class="fab fa-telegram" aria-hidden="true"></i>
+                    <span>TG DM</span>
                 </a>
-                <a href="https://t.me/LifeGlerik" target="_blank" class="link-card" aria-label="Telegram Channel">
-                    <i class="fab fa-telegram"></i><span>My TG Channel</span>
+                <a href="https://t.me/LifeGlerik" target="_blank" rel="noopener noreferrer" class="link-card"
+                    id="link-telegram-channel" data-tooltip="Открыть Telegram канал" aria-label="Telegram Channel">
+                    <i class="fab fa-telegram" aria-hidden="true"></i>
+                    <span>My TG Channel</span>
                 </a>
-                <a href="https://tracker.gg/valorant/profile/riot/RG%20Glerik%23RaGe" target="_blank" class="link-card"
-                    aria-label="Valorant Tracker Profile">
-                    <img src="LinkCard/valorant.svg" class="link-card-icon valorant-icon" alt="Valorant Icon">
+                <a href="https://tracker.gg/valorant/profile/riot/RG%20Glerik%23RaGe" target="_blank"
+                    rel="noopener noreferrer" class="link-card" id="link-valorant"
+                    data-tooltip="Открыть Valorant Tracker" aria-label="Valorant Tracker Profile">
+                    <img src="LinkCard/valorant.svg" class="link-card-icon valorant-icon" alt="" aria-hidden="true"
+                        width="32" height="32">
                     <span>RG Glerik#RaGe</span>
                 </a>
-            </div>
+            </nav>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section" id="stats-section" aria-label="Statistics">
+            <!-- Stats will be injected by JavaScript -->
         </section>
 
         <!-- Main Content -->
-        <main class="content-wrapper">
+        <main class="content-wrapper" id="main-content">
             <h2>Projects & Experience</h2>
 
             <!-- Twitch Stats -->
-            <div class="content-card">
-                <div class="card-header">
-                    <h3><i class="fab fa-twitch twitch-icon"></i> Twitch</h3>
-                </div>
-                <h4><i class="fa-solid fa-users"></i> Streamers</h4>
-                <table id="twitchTable" class="display full-width-table">
+            <article class="content-card" id="twitch-section">
+                <header class="card-header">
+                    <h3><i class="fab fa-twitch twitch-icon" aria-hidden="true"></i> Twitch</h3>
+                </header>
+                <h4><i class="fa-solid fa-users" aria-hidden="true"></i> Streamers</h4>
+                <!-- Filter controls will be injected here -->
+                <table id="twitchTable" class="display full-width-table" aria-label="Twitch streamers table">
                     <thead>
                         <tr>
-                            <th>Streamer</th>
-                            <th>Followers</th>
-                            <th>Position</th>
-                            <th>Date</th>
-                            <th>Status</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Streamer</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Followers</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Position</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Date</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Content loaded via JavaScript -->
                     </tbody>
                 </table>
-            </div>
+            </article>
 
             <!-- Telegram Stats -->
-            <div class="content-card">
-                <div class="card-header">
-                    <h3><i class="fab fa-telegram telegram-icon"></i> Telegram</h3>
-                </div>
-                <h4><i class="fa-solid fa-users"></i> Channels</h4>
-                <table id="telegramTable" class="display full-width-table">
+            <article class="content-card" id="telegram-section">
+                <header class="card-header">
+                    <h3><i class="fab fa-telegram telegram-icon" aria-hidden="true"></i> Telegram</h3>
+                </header>
+                <h4><i class="fa-solid fa-users" aria-hidden="true"></i> Channels</h4>
+                <!-- Filter controls will be injected here -->
+                <table id="telegramTable" class="display full-width-table" aria-label="Telegram channels table">
                     <thead>
                         <tr>
-                            <th>Server</th>
-                            <th>Members</th>
-                            <th>Position</th>
-                            <th>Date</th>
-                            <th>Status</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Server</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Members</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Position</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Date</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Content loaded via JavaScript -->
                     </tbody>
                 </table>
-            </div>
+            </article>
 
             <!-- Discord Stats -->
-            <div class="content-card">
-                <div class="card-header">
-                    <h3><i class="fab fa-discord discord-icon"></i> Discord</h3>
-                </div>
-                <h4><i class="fa-solid fa-server"></i> Servers</h4>
-                <table id="discordTable" class="display full-width-table">
+            <article class="content-card" id="discord-section">
+                <header class="card-header">
+                    <h3><i class="fab fa-discord discord-icon" aria-hidden="true"></i> Discord</h3>
+                </header>
+                <h4><i class="fa-solid fa-server" aria-hidden="true"></i> Servers</h4>
+                <!-- Filter controls will be injected here -->
+                <table id="discordTable" class="display full-width-table" aria-label="Discord servers table">
                     <thead>
                         <tr>
-                            <th>Server</th>
-                            <th>Members</th>
-                            <th>Position</th>
-                            <th>Date</th>
-                            <th>Status</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Server</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Members</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Position</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Date</th>
+                            <th scope="col" data-tooltip="Нажмите для сортировки">Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Content loaded via JavaScript -->
                     </tbody>
                 </table>
-            </div>
+            </article>
 
             <!-- Skills Block -->
-            <div class="skills-card">
+            <section class="skills-card" id="skills-section" aria-labelledby="skills-heading">
+                <h3 id="skills-heading" class="visually-hidden">Skills and Experience</h3>
                 <div class="skill-item">
                     <span class="skill-title">Joined Discord:</span>
                     <span class="skill-value">27/03/2018</span>
@@ -140,21 +322,89 @@
                 <div class="skill-item">
                     <span class="skill-title">Skills:</span>
                     <span class="skill-value">
-                        <span class="skill-color-green">Embeds</span>,
-                        <span class="skill-color-green">server setup</span>,
-                        <span class="skill-color-green">server administration</span>,
-                        <span class="skill-color-purple">server creating</span>,
-                        <span class="skill-color-red">server design</span>,
+                        <span class="skill-color-green" data-tooltip="Уверенный уровень">Embeds</span>,
+                        <span class="skill-color-green" data-tooltip="Уверенный уровень">server setup</span>,
+                        <span class="skill-color-green" data-tooltip="Уверенный уровень">server administration</span>,
+                        <span class="skill-color-purple" data-tooltip="Продвинутый уровень">server creating</span>,
+                        <span class="skill-color-red" data-tooltip="Экспертный уровень">server design</span>,
                         <span>extensive experience in moderation.</span>
                     </span>
                 </div>
-            </div>
+            </section>
+
+            <!-- Timeline Section -->
+            <section class="timeline-section" id="timeline-section" aria-labelledby="timeline-heading">
+                <header class="timeline-header">
+                    <h2 id="timeline-heading">Career Timeline</h2>
+                </header>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2018</span>
+                            <h4 class="timeline-title"><i class="fab fa-discord timeline-icon"></i> Joined Discord</h4>
+                            <p class="timeline-description">Начало пути в Discord сообществе. Первые шаги в модерации и
+                                администрировании.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2020</span>
+                            <h4 class="timeline-title"><i class="fa-solid fa-crown timeline-icon"></i> First Server
+                                Owner</h4>
+                            <p class="timeline-description">Создание и управление собственными серверами: Terra
+                                Incognita, Cat RP.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2023</span>
+                            <h4 class="timeline-title"><i class="fab fa-telegram timeline-icon"></i> Telegram Admin</h4>
+                            <p class="timeline-description">Расширение на платформу Telegram. Администрирование каналов
+                                с 30K+ подписчиков.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-date">2024</span>
+                            <h4 class="timeline-title"><i class="fab fa-twitch timeline-icon"></i> Twitch Moderation
+                            </h4>
+                            <p class="timeline-description">Активная работа с Twitch стримерами. Модерация и
+                                администрирование каналов.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="timeline-date">Now</span>
+                            <h4 class="timeline-title"><i class="fa-solid fa-rocket timeline-icon"></i> Current Projects
+                            </h4>
+                            <p class="timeline-description">Продолжаю развиваться в сфере community management. Открыт
+                                для новых предложений.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </main>
     </div>
 
+    <!-- Keyboard Shortcuts Hint -->
+    <div class="shortcuts-hint" id="shortcuts-hint" data-tooltip="Нажмите ? для справки">
+        <i class="fa-solid fa-keyboard"></i>
+    </div>
+
     <!-- Scripts -->
     <script type="module" src="js/main.js"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(reg => console.log('SW registered'))
+                    .catch(err => console.log('SW registration failed'));
+            });
+        }
+    </script>
 </body>
 
 </html>

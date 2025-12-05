@@ -1,21 +1,21 @@
 /* Component Styles */
 
-/* Link Cards */
+/* ==================== Link Cards ==================== */
 .link-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--card-radius);
-    padding: 20px;
+    padding: var(--spacing-lg);
     display: flex;
     flex-direction: column;
     flex: 1 1 200px;
     max-width: 300px;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: var(--spacing-md);
     text-decoration: none;
-    color: #fff;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-white);
+    transition: all var(--transition-normal);
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -30,13 +30,13 @@
     height: 100%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-normal);
 }
 
 .link-card:hover {
     transform: translateY(-5px);
-    border-color: rgba(145, 70, 255, 0.3);
-    box-shadow: 0 10px 30px -10px rgba(145, 70, 255, 0.3);
+    border-color: var(--glass-border-hover);
+    box-shadow: var(--shadow-card);
 }
 
 .link-card:hover::before {
@@ -46,7 +46,7 @@
 .link-card i,
 .link-card-icon {
     font-size: 2em;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-normal);
 }
 
 .link-card:hover i,
@@ -55,19 +55,19 @@
 }
 
 .link-card .fa-discord {
-    color: #5865F2;
+    color: var(--discord-color);
 }
 
 .link-card .fa-steam {
-    color: #ffffff;
+    color: var(--steam-color);
 }
 
 .link-card .fa-twitch {
-    color: #9146FF;
+    color: var(--twitch-color);
 }
 
 .link-card .fa-telegram {
-    color: #2AABEE;
+    color: var(--telegram-color);
 }
 
 .link-card .valorant-icon {
@@ -78,24 +78,29 @@
 
 .link-card span {
     font-size: 1em;
-    font-weight: 500;
+    font-weight: var(--font-weight-normal);
     z-index: 1;
 }
 
-/* Content Cards */
+/* ==================== Content Cards ==================== */
 .content-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--card-radius);
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
     backdrop-filter: blur(10px);
+    transition: border-color var(--transition-normal);
+}
+
+.content-card:hover {
+    border-color: var(--glass-border-hover);
 }
 
 .card-header {
     margin-bottom: 25px;
     border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 15px;
+    padding-bottom: var(--spacing-md);
 }
 
 .card-header h3 {
@@ -104,65 +109,66 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    color: #fff;
+    color: var(--text-white);
 }
 
 .twitch-icon {
-    color: #9146FF;
-    text-shadow: 0 0 15px rgba(145, 70, 255, 0.4);
+    color: var(--twitch-color);
+    text-shadow: var(--shadow-glow-twitch);
 }
 
 .telegram-icon {
-    color: #2AABEE;
-    text-shadow: 0 0 15px rgba(42, 171, 238, 0.4);
+    color: var(--telegram-color);
+    text-shadow: var(--shadow-glow-telegram);
 }
 
 .discord-icon {
-    color: #5865F2;
-    text-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+    color: var(--discord-color);
+    text-shadow: var(--shadow-glow-discord);
 }
 
 .content-card h4 {
-    margin: 0 0 20px 0;
+    margin: 0 0 var(--spacing-lg) 0;
     font-size: 1.1em;
-    font-weight: 500;
-    color: #888;
+    font-weight: var(--font-weight-normal);
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Tags */
+/* ==================== Tags ==================== */
 .tag {
     padding: 6px 12px;
-    border-radius: 20px;
+    border-radius: var(--tag-radius);
     font-size: 0.85em;
-    font-weight: 600;
-    color: #fff;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-white);
     white-space: nowrap;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-tag);
+    display: inline-block;
 }
 
 .tag-active {
-    background: linear-gradient(135deg, #22a55b, #118040);
+    background: linear-gradient(135deg, var(--status-active), var(--status-active-dark));
 }
 
 .tag-closed {
-    background: linear-gradient(135deg, #747f8d, #5c6570);
+    background: linear-gradient(135deg, var(--status-closed), var(--status-closed-dark));
 }
 
 .tag-moderator {
-    background: linear-gradient(135deg, #3498db, #2980b9);
+    background: linear-gradient(135deg, var(--status-moderator), var(--status-moderator-dark));
 }
 
 .tag-admin {
-    background: linear-gradient(135deg, #f1c40f, #d35400);
+    background: linear-gradient(135deg, var(--status-admin), var(--status-admin-dark));
 }
 
 .tag-owner {
-    background: linear-gradient(135deg, #e67e22, #d35400);
+    background: linear-gradient(135deg, var(--status-owner), var(--status-owner-dark));
 }
 
-/* Tables */
+/* ==================== Tables ==================== */
 .full-width-table {
     width: 100%;
     border-collapse: collapse;
@@ -178,64 +184,145 @@
 
 .full-width-table th {
     background-color: rgba(255, 255, 255, 0.05);
-    font-weight: 600;
-    color: #888;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-muted);
     user-select: none;
+    transition: background-color var(--transition-fast);
 }
 
 .full-width-table th:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.full-width-table tr:hover {
-    background-color: rgba(255, 255, 255, 0.02);
+.full-width-table tbody tr {
+    transition: background-color var(--transition-fast);
+}
+
+.full-width-table tbody tr:hover {
+    background-color: var(--glass-bg-hover);
 }
 
 .table-avatar {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
+    border-radius: var(--card-radius-round);
+    margin-right: var(--spacing-sm);
     vertical-align: middle;
+    object-fit: cover;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.table-avatar.loading {
+    opacity: 0.5;
+}
+
+.table-avatar:hover {
+    transform: scale(1.1);
 }
 
 .streamer-link {
     display: flex;
     align-items: center;
-    color: #fff;
+    color: var(--text-white);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-normal);
 }
 
 .streamer-link:hover {
-    color: var(--primary-color);
+    color: var(--primary-glow);
 }
 
 .table-cell-with-avatar {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--spacing-sm);
 }
 
 .old-name {
     display: block;
     font-size: 0.8em;
-    color: #888;
+    color: var(--text-muted);
     margin-top: 2px;
 }
 
 .sort-icon {
     font-size: 0.8em;
     opacity: 0.7;
-    margin-left: 5px;
+    margin-left: var(--spacing-xs);
 }
 
-/* Skills Block */
+/* ==================== Loading Skeleton ==================== */
+.skeleton {
+    background: linear-gradient(90deg,
+            var(--glass-bg) 25%,
+            var(--glass-bg-hover) 50%,
+            var(--glass-bg) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite ease-in-out;
+    border-radius: var(--card-radius-sm);
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeleton-row {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: 12px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.skeleton-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--card-radius-round);
+    flex-shrink: 0;
+}
+
+.skeleton-text {
+    height: 16px;
+    flex: 1;
+    max-width: 120px;
+}
+
+.skeleton-text-short {
+    height: 16px;
+    width: 60px;
+}
+
+.skeleton-tag {
+    height: 24px;
+    width: 80px;
+    border-radius: var(--tag-radius);
+}
+
+/* ==================== Error State ==================== */
+.error-message {
+    text-align: center;
+    color: var(--text-muted);
+    padding: var(--spacing-lg);
+    font-style: italic;
+}
+
+.error-message i {
+    margin-right: var(--spacing-xs);
+    color: var(--skill-red);
+}
+
+/* ==================== Skills Block ==================== */
 .skills-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--card-radius);
-    padding: 30px;
+    padding: var(--spacing-xl);
     backdrop-filter: blur(10px);
 }
 
@@ -243,7 +330,7 @@
     display: grid;
     grid-template-columns: 180px 1fr;
     align-items: center;
-    padding: 20px 0;
+    padding: var(--spacing-lg) 0;
 }
 
 .skill-item:not(:last-child) {
@@ -251,8 +338,8 @@
 }
 
 .skill-title {
-    font-weight: 600;
-    color: #fff;
+    font-weight: var(--font-weight-semibold);
+    color: var(--text-white);
     font-size: 1.1em;
 }
 
@@ -262,24 +349,90 @@
 }
 
 .skill-color-green {
-    color: #22a55b;
-    text-shadow: 0 0 10px rgba(34, 165, 91, 0.3);
+    color: var(--skill-green);
+    text-shadow: var(--shadow-glow-skill-green);
 }
 
 .skill-color-purple {
-    color: #9b59b6;
-    text-shadow: 0 0 10px rgba(155, 89, 182, 0.3);
+    color: var(--skill-purple);
+    text-shadow: var(--shadow-glow-skill-purple);
 }
 
 .skill-color-red {
-    color: #e74c3c;
-    text-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+    color: var(--skill-red);
+    text-shadow: var(--shadow-glow-skill-red);
 }
 
-/* Responsiveness for Skills */
+/* ==================== Responsive - Components ==================== */
 @media (max-width: 768px) {
+    .link-card {
+        padding: var(--spacing-md);
+        flex: 1 1 150px;
+    }
+
+    .link-card i,
+    .link-card-icon {
+        font-size: 1.5em;
+    }
+
+    .link-card span {
+        font-size: 0.9em;
+    }
+
+    .content-card {
+        padding: var(--spacing-lg);
+    }
+
+    .card-header h3 {
+        font-size: 1.25em;
+    }
+
     .skill-item {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: var(--spacing-sm);
+    }
+
+    .full-width-table th,
+    .full-width-table td {
+        padding: 10px 8px;
+        font-size: 0.9em;
+    }
+
+    .table-avatar {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .link-card {
+        flex: 1 1 120px;
+        padding: var(--spacing-sm) var(--spacing-md);
+        gap: var(--spacing-sm);
+    }
+
+    .link-card i,
+    .link-card-icon {
+        font-size: 1.25em;
+    }
+
+    .content-card {
+        padding: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .content-card h4 {
+        font-size: 0.9em;
+    }
+
+    .tag {
+        padding: 4px 8px;
+        font-size: 0.75em;
+    }
+
+    /* Hide less important columns on small screens */
+    .full-width-table th:nth-child(4),
+    .full-width-table td:nth-child(4) {
+        display: none;
     }
 }

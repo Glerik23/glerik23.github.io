@@ -1,0 +1,69 @@
+/* Tooltip Styles */
+
+.tooltip {
+    position: absolute;
+    z-index: 9998;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--bg-color-elevated);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius-sm);
+    font-size: 0.85em;
+    color: var(--text-color);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tooltip-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Arrow */
+.tooltip::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--bg-color-elevated);
+    border: 1px solid var(--glass-border);
+    transform: rotate(45deg);
+}
+
+.tooltip[data-position="top"]::before {
+    bottom: -5px;
+    left: 50%;
+    margin-left: -4px;
+    border-top: none;
+    border-left: none;
+}
+
+.tooltip[data-position="bottom"]::before {
+    top: -5px;
+    left: 50%;
+    margin-left: -4px;
+    border-bottom: none;
+    border-right: none;
+}
+
+.tooltip[data-position="left"]::before {
+    right: -5px;
+    top: 50%;
+    margin-top: -4px;
+    border-bottom: none;
+    border-left: none;
+}
+
+.tooltip[data-position="right"]::before {
+    left: -5px;
+    top: 50%;
+    margin-top: -4px;
+    border-top: none;
+    border-right: none;
+}

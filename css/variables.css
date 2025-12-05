@@ -1,11 +1,212 @@
-/* Variables */
+/* CSS Variables - Design Tokens */
 :root {
+    /* Background Colors */
     --bg-color: #0a0a12;
+    --bg-color-elevated: #12121a;
+
+    /* Text Colors */
     --text-color: #e0e0e0;
+    --text-muted: #888888;
+    --text-white: #ffffff;
+
+    /* Brand Colors - Primary */
     --primary-glow: #9146FF;
     --secondary-glow: #ff00d4;
+
+    /* Brand Colors - Platform */
+    --discord-color: #5865F2;
+    --twitch-color: #9146FF;
+    --telegram-color: #2AABEE;
+    --steam-color: #ffffff;
+    --valorant-color: #ff4655;
+
+    /* Status Colors */
+    --status-active: #22a55b;
+    --status-active-dark: #118040;
+    --status-closed: #747f8d;
+    --status-closed-dark: #5c6570;
+    --status-moderator: #3498db;
+    --status-moderator-dark: #2980b9;
+    --status-admin: #f1c40f;
+    --status-admin-dark: #d35400;
+    --status-owner: #e67e22;
+    --status-owner-dark: #d35400;
+
+    /* Skill Colors */
+    --skill-green: #22a55b;
+    --skill-purple: #9b59b6;
+    --skill-red: #e74c3c;
+
+    /* Glass Effect */
     --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-bg-hover: rgba(255, 255, 255, 0.06);
     --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-border-hover: rgba(145, 70, 255, 0.3);
+
+    /* Sizing */
     --card-radius: 16px;
+    --card-radius-lg: 24px;
+    --card-radius-sm: 8px;
+    --card-radius-round: 50%;
+    --tag-radius: 20px;
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-2xl: 40px;
+    --spacing-3xl: 60px;
+
+    /* Typography */
     --font-main: 'Manrope', sans-serif;
+    --font-weight-normal: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.4s ease;
+
+    /* Shadows */
+    --shadow-glow-primary: 0 0 30px rgba(145, 70, 255, 0.4);
+    --shadow-glow-twitch: 0 0 15px rgba(145, 70, 255, 0.4);
+    --shadow-glow-telegram: 0 0 15px rgba(42, 171, 238, 0.4);
+    --shadow-glow-discord: 0 0 15px rgba(88, 101, 242, 0.4);
+    --shadow-glow-skill-green: 0 0 10px rgba(34, 165, 91, 0.3);
+    --shadow-glow-skill-purple: 0 0 10px rgba(155, 89, 182, 0.3);
+    --shadow-glow-skill-red: 0 0 10px rgba(231, 76, 60, 0.3);
+    --shadow-card: 0 10px 30px -10px rgba(145, 70, 255, 0.3);
+    --shadow-banner: 0 10px 40px rgba(0, 0, 0, 0.5);
+    --shadow-tag: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+    /* Color scheme */
+    color-scheme: dark;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+    /* Background Colors */
+    --bg-color: #f5f5f7;
+    --bg-color-elevated: #ffffff;
+
+    /* Text Colors - darker for better contrast */
+    --text-color: #1a1a1a;
+    --text-muted: #444444;
+    --text-white: #000000;
+
+    /* Platform colors - adjust for light bg */
+    --steam-color: #171a21;
+
+    /* Glass Effect */
+    --glass-bg: rgba(0, 0, 0, 0.03);
+    --glass-bg-hover: rgba(0, 0, 0, 0.06);
+    --glass-border: rgba(0, 0, 0, 0.12);
+    --glass-border-hover: rgba(145, 70, 255, 0.4);
+
+    /* Shadows - lighter for light theme */
+    --shadow-glow-primary: 0 0 30px rgba(145, 70, 255, 0.25);
+    --shadow-glow-twitch: 0 0 15px rgba(145, 70, 255, 0.25);
+    --shadow-glow-telegram: 0 0 15px rgba(42, 171, 238, 0.25);
+    --shadow-glow-discord: 0 0 15px rgba(88, 101, 242, 0.25);
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+    --shadow-banner: 0 10px 40px rgba(0, 0, 0, 0.15);
+    --shadow-tag: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    /* Color scheme */
+    color-scheme: light;
+}
+
+/* Light Theme - Component Overrides */
+[data-theme="light"] .profile-content h1 {
+    background: linear-gradient(to right, #1a1a1a, #333333);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .profile-subtitle {
+    color: #444444;
+}
+
+[data-theme="light"] .stat-value {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .stat-label {
+    color: #555555;
+}
+
+[data-theme="light"] .skill-value {
+    color: #333333;
+}
+
+[data-theme="light"] .skill-title {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .timeline-description {
+    color: #444444;
+}
+
+[data-theme="light"] .timeline-title {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .card-header h3 {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .content-card h4 {
+    color: #333333;
+}
+
+[data-theme="light"] .link-card span {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .content-wrapper h2 {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .timeline-header h2 {
+    background: linear-gradient(to right, #1a1a1a, #444444);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .full-width-table th {
+    color: #333333;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .full-width-table td {
+    color: #1a1a1a;
+}
+
+[data-theme="light"] .streamer-link {
+    color: #1a1a1a;
+}
+
+/* Theme transition */
+html,
+body,
+.main-container,
+.content-card,
+.link-card,
+.skills-card,
+.stat-card,
+.timeline-content,
+.filter-search,
+.modal-content,
+.toast,
+.tooltip,
+.back-to-top {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
