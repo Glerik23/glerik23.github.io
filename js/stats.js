@@ -5,6 +5,15 @@
 
 import { createElement, setTextContent } from './utils.js';
 
+/** Placeholder text shown before data is ready */
+const PLACEHOLDER = '...';
+
+/** Module state */
+let dataReady = false;
+let sectionVisible = false;
+let animated = false;
+let statsSection = null;
+
 /**
  * Animate a number from 0 to target
  * @param {HTMLElement} element - Element to update
@@ -23,7 +32,7 @@ function animateCounter(element, target, duration = 2000) {
         const easeOut = 1 - Math.pow(1 - progress, 3);
         const current = Math.floor(start + (target - start) * easeOut);
 
-        // Format with spaces
+        // Format with spaces for thousands
         setTextContent(element, current.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '));
 
         if (progress < 1) {
@@ -35,11 +44,10 @@ function animateCounter(element, target, duration = 2000) {
 }
 
 /**
- * Calculate stats from data
- * @returns {Object} Stats object
+ * Calculate stats from rendered table data
+ * @returns {Object} Stats object with totalFollowers, totalServers, yearsExperience, platforms
  */
 function calculateStats() {
-    // Import data dynamically to avoid circular dependencies
     const stats = {
         totalFollowers: 0,
         totalServers: 0,
@@ -82,7 +90,35 @@ function calculateStats() {
 }
 
 /**
- * Create stats section
+ * Try to run animation if both conditions are met
+ * (data is ready AND section is visible)
+ */
+function tryRunAnimation() {
+    if (!dataReady || !sectionVisible || animated || !statsSection) {
+        return;
+    }
+
+    animated = true;
+
+    // Get fresh stats from tables
+    const stats = calculateStats();
+
+    // Animate each counter with staggered delay
+    const valueElements = statsSection.querySelectorAll('.stat-value');
+    valueElements.forEach((el, index) => {
+        const key = el.dataset.key;
+        const target = stats[key] || 0;
+        el.dataset.target = target;
+
+        // Stagger animation start for visual effect
+        setTimeout(() => {
+            animateCounter(el, target, 1500);
+        }, index * 100);
+    });
+}
+
+/**
+ * Create stats section with placeholder values
  * @returns {HTMLElement} Stats section element
  */
 export function createStatsSection() {
@@ -109,7 +145,8 @@ export function createStatsSection() {
         const value = createElement('div', 'stat-value');
         value.dataset.target = '0';
         value.dataset.key = config.key;
-        setTextContent(value, '0');
+        // Show placeholder until data is ready
+        setTextContent(value, PLACEHOLDER);
 
         const label = createElement('div', 'stat-label');
         setTextContent(label, config.label);
@@ -127,30 +164,24 @@ export function createStatsSection() {
 
 /**
  * Initialize stats animation with Intersection Observer
+ * Animation only runs when BOTH data is ready AND section is visible
  * @param {HTMLElement} section - Stats section element
  */
 export function initStatsAnimation(section) {
     if (!section) return;
 
-    let animated = false;
+    statsSection = section;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !animated) {
-                animated = true;
+                sectionVisible = true;
+                tryRunAnimation();
 
-                // Get fresh stats
-                const stats = calculateStats();
-
-                // Animate each counter
-                section.querySelectorAll('.stat-value').forEach(el => {
-                    const key = el.dataset.key;
-                    const target = stats[key] || 0;
-                    el.dataset.target = target;
-                    animateCounter(el, target);
-                });
-
-                observer.unobserve(section);
+                // Stop observing once visible
+                if (animated) {
+                    observer.unobserve(section);
+                }
             }
         });
     }, { threshold: 0.3 });
@@ -159,22 +190,22 @@ export function initStatsAnimation(section) {
 }
 
 /**
- * Update stats (call after data loads)
+ * Mark stats as ready to animate
+ * Call this after API data has loaded (success or error)
  */
-export function updateStats() {
-    const section = document.getElementById('stats-section');
-    if (!section) return;
+export function markStatsReady() {
+    if (dataReady) return; // Already ready
 
-    const stats = calculateStats();
+    dataReady = true;
+    tryRunAnimation();
+}
 
-    section.querySelectorAll('.stat-value').forEach(el => {
-        const key = el.dataset.key;
-        const target = stats[key] || 0;
-
-        // Only animate if target changed
-        if (el.dataset.target !== String(target)) {
-            el.dataset.target = target;
-            animateCounter(el, target, 1000);
-        }
-    });
+/**
+ * Reset stats state (useful for testing)
+ */
+export function resetStats() {
+    dataReady = false;
+    sectionVisible = false;
+    animated = false;
+    statsSection = null;
 }

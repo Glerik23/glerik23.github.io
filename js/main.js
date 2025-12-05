@@ -12,7 +12,7 @@ import { initTheme } from './theme.js';
 import { initTooltips } from './tooltip.js';
 import { initShortcuts } from './shortcuts.js';
 import { initFilters } from './filter.js';
-import { createStatsSection, initStatsAnimation, updateStats } from './stats.js';
+import { createStatsSection, initStatsAnimation, markStatsReady } from './stats.js';
 import { initBackToTop } from './scroll.js';
 import { setupAnimationClasses, initScrollAnimations } from './animations.js';
 import { initParticles } from './particles.js';
@@ -111,27 +111,26 @@ function initializeTables() {
 
 /**
  * Start live data updates for Twitch and Telegram
+ * Stats animation is enabled after all API calls complete (success or failure)
  */
 function startLiveUpdates() {
-    // Update Twitch stats
-    updateTwitchStats()
-        .then(() => {
-            // Update stats after data loads
-            updateStats();
-        })
+    const twitchPromise = updateTwitchStats()
         .catch(err => {
             console.warn('Failed to update Twitch stats:', err.message);
             toast.warning('Не удалось загрузить данные Twitch');
         });
 
-    // Update Telegram stats
-    updateTelegramStats()
-        .then(() => {
-            updateStats();
-        })
+    const telegramPromise = updateTelegramStats()
         .catch(err => {
             console.warn('Failed to update Telegram stats:', err.message);
             toast.warning('Не удалось загрузить данные Telegram');
+        });
+
+    // Wait for both API calls to complete (success or failure)
+    // Then mark stats as ready for animation
+    Promise.allSettled([twitchPromise, telegramPromise])
+        .then(() => {
+            markStatsReady();
         });
 }
 
