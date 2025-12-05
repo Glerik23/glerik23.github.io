@@ -61,6 +61,15 @@ function calculateStats() {
         }
     });
 
+    // Count subscribers from Telegram
+    telegramRows.forEach(row => {
+        const cell = row.querySelector('.member-count');
+        if (cell) {
+            const num = parseInt(cell.textContent.replace(/\s/g, ''), 10);
+            if (!isNaN(num)) stats.totalFollowers += num;
+        }
+    });
+
     // Count total servers/channels
     stats.totalServers = discordRows.length + telegramRows.length + twitchRows.length;
 
@@ -83,10 +92,10 @@ export function createStatsSection() {
     const statsGrid = createElement('div', 'stats-grid');
 
     const statsConfig = [
-        { id: 'stat-followers', icon: 'fa-users', label: 'Подписчиков', key: 'totalFollowers' },
-        { id: 'stat-projects', icon: 'fa-folder-open', label: 'Проектов', key: 'totalServers' },
-        { id: 'stat-experience', icon: 'fa-clock', label: 'Лет опыта', key: 'yearsExperience' },
-        { id: 'stat-platforms', icon: 'fa-layer-group', label: 'Платформ', key: 'platforms' }
+        { id: 'stat-followers', icon: 'fa-users', label: 'Followers', key: 'totalFollowers' },
+        { id: 'stat-projects', icon: 'fa-folder-open', label: 'Projects', key: 'totalServers' },
+        { id: 'stat-experience', icon: 'fa-clock', label: 'Years of Experience', key: 'yearsExperience' },
+        { id: 'stat-platforms', icon: 'fa-layer-group', label: 'Platforms', key: 'platforms' }
     ];
 
     statsConfig.forEach(config => {
@@ -169,4 +178,3 @@ export function updateStats() {
         }
     });
 }
-
