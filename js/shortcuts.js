@@ -8,17 +8,17 @@ import { createElement, setTextContent } from './utils.js';
 
 /** Shortcuts configuration */
 const SHORTCUTS = [
-    { key: 't', description: 'Переключить тему', action: toggleTheme },
-    { key: 'Home', description: 'В начало страницы', action: () => scrollToTop() },
-    { key: 'End', description: 'В конец страницы', action: () => scrollToBottom() },
-    { key: '1', description: 'Twitch секция', action: () => scrollToSection('twitch-section') },
-    { key: '2', description: 'Telegram секция', action: () => scrollToSection('telegram-section') },
-    { key: '3', description: 'Discord секция', action: () => scrollToSection('discord-section') },
-    { key: '4', description: 'Навыки', action: () => scrollToSection('skills-section') },
+    { key: 't', description: 'Toggle theme', action: toggleTheme },
+    { key: 'Home', description: 'Go to top', action: () => scrollToTop() },
+    { key: 'End', description: 'Go to bottom', action: () => scrollToBottom() },
+    { key: '1', description: 'Twitch section', action: () => scrollToSection('twitch-section') },
+    { key: '2', description: 'Telegram section', action: () => scrollToSection('telegram-section') },
+    { key: '3', description: 'Discord section', action: () => scrollToSection('discord-section') },
+    { key: '4', description: 'Skills', action: () => scrollToSection('skills-section') },
     { key: '5', description: 'Timeline', action: () => scrollToSection('timeline-section') },
-    { key: '/', description: 'Фокус на поиск', action: () => focusSearch(), preventDefault: true },
-    { key: 'Escape', description: 'Очистить поиск / закрыть', action: () => handleEscape() },
-    { key: '?', description: 'Показать справку', action: () => toggleHelpModal(), shift: true }
+    { key: '/', description: 'Focus search', action: () => focusSearch(), preventDefault: true },
+    { key: 'Escape', description: 'Clear search / close', action: () => handleEscape() },
+    { key: '?', description: 'Show help', action: () => toggleHelpModal(), shift: true }
 ];
 
 /** Help modal element */
@@ -96,12 +96,12 @@ function createHelpModal() {
     const header = createElement('div', 'modal-header');
     const title = createElement('h3', 'modal-title');
     title.id = 'shortcuts-title';
-    setTextContent(title, 'Горячие клавиши');
+    setTextContent(title, 'Keyboard Shortcuts');
 
     const closeBtn = createElement('button', 'modal-close');
     const closeIcon = createElement('i', 'fa-solid fa-times');
     closeBtn.appendChild(closeIcon);
-    closeBtn.setAttribute('aria-label', 'Закрыть');
+    closeBtn.setAttribute('aria-label', 'Close');
     closeBtn.addEventListener('click', hideHelpModal);
 
     header.appendChild(title);
