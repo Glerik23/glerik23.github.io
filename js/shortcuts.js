@@ -151,6 +151,7 @@ function showHelpModal() {
     helpModal.classList.add('modal-visible');
     helpModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    document.body.style.overflowX = 'hidden';
 
     // Focus close button
     const closeBtn = helpModal.querySelector('.modal-close');
@@ -165,6 +166,7 @@ function hideHelpModal() {
         helpModal.classList.remove('modal-visible');
         helpModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        document.body.style.overflowX = '';
     }
 }
 
