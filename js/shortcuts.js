@@ -209,6 +209,12 @@ function handleKeydown(e) {
  */
 export function initShortcuts() {
     document.addEventListener('keydown', handleKeydown);
+
+    // Add click handler for shortcuts hint button
+    const shortcutsHint = document.getElementById('shortcuts-hint');
+    if (shortcutsHint) {
+        shortcutsHint.addEventListener('click', toggleHelpModal);
+    }
 }
 
 // Export for external access
