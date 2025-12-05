@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    // Base path for GitHub Pages (repo name or '/' for user.github.io)
+    base: '/',
     server: {
         open: true
     },
@@ -8,22 +10,16 @@ export default defineConfig({
         outDir: 'dist',
         assetsDir: 'assets',
         sourcemap: false,
-        // Optimize CSS
-        cssCodeSplit: true,
-        // Minification
-        minify: 'terser',
-        terserOptions: {
-            compress: {
-                drop_console: true,
-                drop_debugger: true
-            }
-        },
-        // Chunk splitting for better caching
+        // Bundle all CSS into one file
+        cssCodeSplit: false,
+        // Use esbuild for minification (built-in, fast)
+        minify: 'esbuild',
+        // Hashed filenames for cache busting
         rollupOptions: {
             output: {
-                manualChunks: {
-                    // Separate vendor chunks if needed in future
-                }
+                entryFileNames: 'assets/[name]-[hash].js',
+                chunkFileNames: 'assets/[name]-[hash].js',
+                assetFileNames: 'assets/[name]-[hash][extname]'
             }
         }
     },
