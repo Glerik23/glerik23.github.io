@@ -19,6 +19,20 @@ import { initParticles } from './particles.js';
 import { toast } from './toast.js';
 
 /**
+ * Initialize development banner
+ */
+function initDevBanner() {
+    const banner = document.getElementById('dev-banner');
+    const closeBtn = document.getElementById('dev-banner-close');
+
+    if (banner && closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            banner.classList.add('dev-banner--hidden');
+        });
+    }
+}
+
+/**
  * Hide preloader
  */
 function hidePreloader() {
@@ -38,6 +52,9 @@ function hidePreloader() {
 function init() {
     // Initialize theme immediately (before content loads)
     initTheme();
+
+    // Initialize development banner
+    initDevBanner();
 
     // Initialize particles background
     initParticles();
