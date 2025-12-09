@@ -80,6 +80,16 @@ export const twitchStreamers = [
         status: statusTag('active')
     },
     {
+        id: '1008883345',
+        streamer: 'shoyo4ka',
+        originalName: 'shoyo4ka',
+        avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e69bce4f-904c-45f9-8751-ffb7df5ff855-profile_image-600x600.png',
+        followers: 142,
+        position: positionTag('moderator'),
+        date: '08/12/2025 →',
+        status: statusTag('active')
+    },
+    {
         id: '726895581',
         streamer: 'sunako_krhshk',
         originalName: 'Mattrahersha',
