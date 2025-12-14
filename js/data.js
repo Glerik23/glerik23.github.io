@@ -51,7 +51,7 @@ export const twitchStreamers = [
     },
     {
         id: '467589920',
-        streamer: 'Am0o__',
+        streamer: 'inekorai',
         originalName: 'Am0o__',
         avatar: 'https://static-cdn.jtvnw.net/jtv_user_pictures/e2c89bcc-0c4d-410b-a0ab-9edbe5577886-profile_image-300x300.png',
         followers: 13,
